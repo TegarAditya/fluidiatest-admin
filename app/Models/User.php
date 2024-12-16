@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use Filament\Panel;
+use Hidehalo\Nanoid\Client;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +23,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'public_id',
         'name',
         'email',
         'password',
@@ -50,8 +52,28 @@ class User extends Authenticatable
         ];
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        $nanoid = new Client();
+
+        $generatePublicId = function ($model) use ($nanoid) {
+            if ($model->public_id === null) {
+                $model->public_id = generatePublicId();
+            }
+        };
+
+        User::creating($generatePublicId);
+        User::updating($generatePublicId);
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
+        if ($panel->getId() === 'admin') {
+            return $this->hasRole('super_admin');
+        }
+ 
         return true;
     }
 }
