@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Filament\Widgets;
+namespace App\Filament\Admin\Widgets;
 
+use App\Models\QuestionBank;
+use App\Models\QuestionPack;
+use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
@@ -10,14 +13,11 @@ class TestOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Siswa', '1000')
-                ->description('100% increase')
+            Stat::make('Total Pengguna', User::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
-            Stat::make('Total Guru', '10')
-                ->description('7% decrease')
+            Stat::make('Total Test', QuestionPack::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-down'),
-            Stat::make('Total Admin', '1')
-                ->description('3% increase')
+            Stat::make('Total Pertanyaan', QuestionBank::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
         ];
     }
