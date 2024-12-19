@@ -4,14 +4,19 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\QuestionPackResource\Pages;
 use App\Filament\Admin\Resources\QuestionPackResource\RelationManagers;
+use App\Models\QuestionBank;
 use App\Models\QuestionPack;
+use App\Services\MarkdownService;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\FormsComponent;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 
 class QuestionPackResource extends Resource
 {
@@ -29,25 +34,63 @@ class QuestionPackResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('code')
-                    ->label('Kode')
-                    ->placeholder('Masukkan kode paket soal')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\ToggleButtons::make('is_active')
-                    ->label('Status')
-                    ->required()
-                    ->options([
-                        1 => 'Aktif',
-                        0 => 'Tidak Aktif',
-                    ])
-                    ->default(false)
-                    ->inline(),
-                Forms\Components\MarkdownEditor::make('description')
-                    ->label('Deskripsi')
-                    ->default('Masukkan deskripsi paket soal')
-                    ->required()
-                    ->columnSpanFull(),
+                Forms\Components\Tabs::make('question_pack_tabs')
+                    ->columnSpanFull()
+                    ->schema([
+                        Forms\Components\Tabs\Tab::make('question_pack_tab_general')
+                            ->label('Umum')
+                            ->columns(3)
+                            ->schema([
+                                Forms\Components\TextInput::make('code')
+                                    ->label('Kode')
+                                    ->placeholder('Masukkan kode paket soal')
+                                    ->required()
+                                    ->maxLength(255),
+                                Forms\Components\TimePicker::make('time')
+                                    ->label('Durasi'),
+                                Forms\Components\ToggleButtons::make('is_active')
+                                    ->label('Status')
+                                    ->required()
+                                    ->options([
+                                        1 => 'Aktif',
+                                        0 => 'Tidak Aktif',
+                                    ])
+                                    ->default(false)
+                                    ->inline(),
+                                Forms\Components\MarkdownEditor::make('description')
+                                    ->label('Deskripsi')
+                                    ->default('Masukkan deskripsi paket soal')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                        Forms\Components\Tabs\Tab::make('question_add')
+                            ->label('Tambah Pertanyaan')
+                            ->schema([
+                                Forms\Components\Repeater::make('questionPackQuestionBank')
+                                    ->label('Tambah Soal')
+                                    ->relationship()
+                                    ->schema([
+                                        Forms\Components\Select::make('question_bank_id')
+                                            ->label('Soal')
+                                            ->searchable()
+                                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                                            ->options(function () {
+                                                $questions = QuestionBank::all()->pluck('code', 'id');
+
+                                                return $questions;
+                                            })
+                                            ->live(),
+                                        Forms\Components\Placeholder::make('question_ph')
+                                            ->label('Pratinjau')
+                                            ->visible(fn(Get $get) => $get('question_bank_id'))
+                                            ->content(function (Get $get) {
+                                                $question_bank = QuestionBank::find($get('question_bank_id'));
+
+                                                return new HtmlString(self::getParsedQuestionPreview($question_bank->question));
+                                            })
+                                    ])
+                            ])
+                    ]),
             ]);
     }
 
@@ -56,21 +99,19 @@ class QuestionPackResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('code')
+                    ->label('Kode')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_active')
+                    ->label('Status Aktif')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
                 //
@@ -99,5 +140,18 @@ class QuestionPackResource extends Resource
             'create' => Pages\CreateQuestionPack::route('/create'),
             'edit' => Pages\EditQuestionPack::route('/{record}/edit'),
         ];
+    }
+
+    protected static function getParsedQuestionPreview(?string $question): string
+    {
+        if (!$question) {
+            return 'Tidak ada pertanyaan';
+        }
+
+        $parsedown = new \Parsedown();
+        $markdownService = new MarkdownService($parsedown);
+        $parsed = $markdownService->parse($question);
+
+        return $parsed;
     }
 }
