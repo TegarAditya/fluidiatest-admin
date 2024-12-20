@@ -46,7 +46,7 @@ class QuestionPackResource extends Resource
                                     ->placeholder('Masukkan kode paket soal')
                                     ->required()
                                     ->maxLength(255),
-                                Forms\Components\TimePicker::make('time')
+                                Forms\Components\TimePicker::make('duration')
                                     ->label('Durasi'),
                                 Forms\Components\ToggleButtons::make('is_active')
                                     ->label('Status')
@@ -101,14 +101,23 @@ class QuestionPackResource extends Resource
                 Tables\Columns\TextColumn::make('code')
                     ->label('Kode')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Deskripsi')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('duration')
+                    ->label('Durasi')
+                    ->badge()
+                    ->time(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Status Aktif')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Dibuat')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Diperbarui')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: false),

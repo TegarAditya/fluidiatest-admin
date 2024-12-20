@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionPack extends Model
 {
-    protected $fillable = ['code', 'description', 'is_active'];
+    protected $fillable = ['code', 'duration', 'description', 'is_active'];
 
     public function questions()
     {
