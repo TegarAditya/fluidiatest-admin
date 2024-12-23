@@ -1,4 +1,17 @@
-# Use the FrankenPHP image
+# Stage 1: Build frontend assets using oven/bun
+FROM oven/bun:1 AS frontend-build
+
+# Set working directory
+WORKDIR /app
+
+# Copy only the frontend-related files
+COPY . /app
+
+# Install dependencies and build assets
+RUN bun install
+RUN bun run build
+
+# Stage 2: Final image with FrankenPHP
 FROM dunglas/frankenphp:php8.3-alpine
 
 # Install PHP extensions
@@ -24,9 +37,6 @@ RUN install-php-extensions \
     xml \
     zip
 
-# Install Node.js and npm
-RUN apk add --no-cache nodejs npm
-
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
@@ -39,13 +49,13 @@ WORKDIR /app
 # Copy application code to container
 COPY . /app
 
-# Install dependencies and build assets
+# Copy built frontend assets from the first stage
+COPY --from=frontend-build /app/public/build /app/public/build
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-RUN npm install
-
-RUN npm run build
-
+# Run Laravel setup
 RUN php artisan storage:link
 
 # Expose port
