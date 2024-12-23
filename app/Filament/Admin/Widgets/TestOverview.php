@@ -14,11 +14,14 @@ class TestOverview extends BaseWidget
     {
         return [
             Stat::make('Total Pengguna', User::count())
-                ->descriptionIcon('heroicon-m-arrow-trending-up'),
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->url(route('filament.admin.resources.users.index')),
             Stat::make('Total Test', QuestionPack::count())
-                ->descriptionIcon('heroicon-m-arrow-trending-down'),
+                ->descriptionIcon('heroicon-m-arrow-trending-down')
+                ->url(route('filament.admin.resources.question-packs.index')),
             Stat::make('Total Pertanyaan', QuestionBank::count())
-                ->descriptionIcon('heroicon-m-arrow-trending-up'),
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->url(route('filament.admin.resources.question-banks.index')),
         ];
     }
 }
