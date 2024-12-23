@@ -24,6 +24,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'public_id',
+        'school_id',
         'name',
         'email',
         'password',
@@ -50,6 +51,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
     }
 
     protected static function boot()
