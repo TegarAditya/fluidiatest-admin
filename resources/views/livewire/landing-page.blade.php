@@ -14,23 +14,25 @@
 <body>
     <div class="relative">
         <nav class="fixed backdrop-blur-sm w-full top-0">
-            <div class="bg-white bg-opacity-75 p-4 h-20 shadow-2xl flex justify-between items-center">
-                <div class="flex items-center justify-start gap-4">
-                    <img class="max-h-14 w-auto object-cover" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Emblem_of_Yogyakarta_State_University.svg/1200px-Emblem_of_Yogyakarta_State_University.svg.png" alt="logo uny">
-                    <div class="flex items-center">
-                        <h3 class="text-2xl font-bold drop-shadow-md text-[#46338a]">Fluidiatest</h3>
+            <div class="bg-white bg-opacity-75 p-4 h-20 shadow-2xl flex justify-center md:justify-between items-center">
+                <div class="flex items-center justify-start">
+                    <div class="bg-white flex items-center z-10 p-1 rounded-full aspect-square">
+                        <img class="max-h-12 w-auto object-cover" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Emblem_of_Yogyakarta_State_University.svg/1200px-Emblem_of_Yogyakarta_State_University.svg.png" alt="logo uny">
+                    </div>
+                    <div class="flex items-center bg-white pl-4 py-2 pr-4 rounded-r-full -m-4">
+                        <h3 class="text-2xl font-bold drop-shadow-md text-[#46338a]">UNY</h3>
                     </div>
                 </div>
-                <div class="mr-5 flex items-center gap-5">
+                <div class="mr-5 hidden md:flex items-center gap-5">
                     <div>
                         <ul class="flex font-semibold gap-4">
-                            <li class="hover:font-semibold">Tentang Fluidiatest</li>
-                            <li class="hover:font-semibold">Profil Pengembang</li>
-                            <li class="hover:font-semibold">Cara Penggunaan</li>
+                            <li class="hover:font-semibold"><a href="#about">Tentang</a></li>
+                            <li class="hover:font-semibold"><a href="#">Profil</a></li>
+                            <li class="hover:font-semibold"><a href="#">Tutorial</a></li>
                         </ul>
                     </div>
                     <div>
-                        <a href="">
+                        <a href="/student">
                             <div class="px-5 shadow-md py-2 rounded-full bg-[#46338a]">
                                 <p class="text-lg text-white font-bold">Masuk</p>
                             </div>
@@ -40,19 +42,19 @@
             </div>
         </nav>
         <main>
-            <div class="w-full flex flex-col items-center justify-center min-h-[100dvh] gap-5 hero">
+            <div class="w-full flex flex-col items-center justify-center min-h-[100dvh] gap-7 hero">
                 <div class="text-white">
-                    <h1 class="font-bold text-7xl">Welcome to Fluidiatest</h1>
+                    <h1 class="font-bold text-5xl text-center md:text-7xl">Welcome to Fluidiatest</h1>
                 </div>
                 <div class="flex justify-center items-center gap-4">
-                    <a href="">
+                    <a href="#about">
                         <div class="px-5 shadow-md py-2 rounded-full bg-white">
                             <p class="text-lg text-[#46338a] font-bold">Pelajari Selengkapnya</p>
                         </div>
                     </a>
                 </div>
             </div>
-            <div id="" class="w-full bg-white min-h-[100dvh]"></div>
+            <div id="about" class="w-full bg-white min-h-[100dvh]"></div>
         </main>
         <footer class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
@@ -61,9 +63,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                         </svg>
-                        <span class="ml-3 text-xl">Tailblocks</span>
+                        <span class="ml-3 text-xl">Made with Tailwind</span>
                     </a>
-                    <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+                    <p class="mt-2 text-sm text-gray-500">A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.</p>
                 </div>
                 <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                     <div class="lg:w-1/4 md:w-1/2 w-full px-4">
@@ -138,8 +140,8 @@
             </div>
             <div class="bg-gray-100">
                 <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Tailblocks —
-                        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2024 Fluidiatest —
+                        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Nurdiyanti</a>
                     </p>
                     <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                         <a class="text-gray-500">
@@ -171,6 +173,10 @@
     </div>
 </body>
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     .hero {
         background-image: url('https://media-public.canva.com/4rCO8/MAFbWk4rCO8/1/s3.jpg');
         background-size: cover;
