@@ -5,6 +5,7 @@ services:
     ports:
       - "${APP_PORT}:8000"
     volumes:
-      - .:/app
+      - ./storage:/app/storage
+      - ./.env:/app/.env
     entrypoint: php artisan octane:frankenphp --workers=1 --max-requests=1
     restart: unless-stopped
