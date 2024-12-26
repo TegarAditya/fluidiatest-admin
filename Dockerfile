@@ -1,20 +1,14 @@
-# Stage 1: Build frontend assets using oven/bun
-FROM oven/bun:1 AS frontend-build
+# Copy Node.js and Corepack from node:alpine
+FROM node:20-alpine AS nodejs
 
-# Set working directory
-WORKDIR /app
+# Enable Corepack and prepare pnpm
+RUN corepack enable \
+    && corepack prepare pnpm@latest --activate
 
-# Copy only the frontend-related files
-COPY . /app
+# Base image with FrankenPHP
+FROM dunglas/frankenphp:php8.3-alpine AS base
 
-# Install dependencies and build assets
-RUN bun install
-RUN bun run build
-
-# Stage 2: Final image with FrankenPHP
-FROM dunglas/frankenphp:php8.3-alpine
-
-# Install PHP extensions
+# Install required PHP extensions
 RUN install-php-extensions \
     ctype \
     curl \
@@ -37,6 +31,11 @@ RUN install-php-extensions \
     xml \
     zip
 
+# Copy Node.js and Corepack binaries
+COPY --from=nodejs /usr/local/bin/node /usr/local/bin/
+COPY --from=nodejs /usr/local/lib/node_modules /usr/local/lib/node_modules/
+COPY --from=nodejs /usr/local/bin/corepack /usr/local/bin/corepack
+
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
@@ -46,14 +45,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 # Set working directory
 WORKDIR /app
 
-# Copy application code to container
+# Copy application code
 COPY . /app
-
-# Copy built frontend assets from the first stage
-COPY --from=frontend-build /app/public/build /app/public/build
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
+
+# Install Node.js dependencies and build frontend assets
+RUN node /usr/local/lib/node_modules/corepack/dist/corepack.js pnpm install --frozen-lockfile
+RUN node /usr/local/lib/node_modules/corepack/dist/corepack.js pnpm run build
 
 # Run Laravel setup
 RUN php artisan storage:link
