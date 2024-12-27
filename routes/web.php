@@ -1,7 +1,6 @@
 <?php
 
+use App\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('livewire.landing-page');
-});
+Route::get('/', LandingPage::class);
