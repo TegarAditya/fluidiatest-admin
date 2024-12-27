@@ -3,6 +3,8 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Student\Auth\Login;
+use Awcodes\LightSwitch\Enums\Alignment;
+use Awcodes\LightSwitch\LightSwitchPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,7 +34,7 @@ class StudentPanelProvider extends PanelProvider
             ])
             ->topNavigation()
             ->profile()
-            ->font('Quicksand')
+            ->font('Space Grotesk')
             ->viteTheme('resources/css/filament/student/theme.css')
             ->discoverResources(in: app_path('Filament/Student/Resources'), for: 'App\\Filament\\Student\\Resources')
             ->discoverPages(in: app_path('Filament/Student/Pages'), for: 'App\\Filament\\Student\\Pages')
@@ -57,6 +59,10 @@ class StudentPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                LightSwitchPlugin::make()
+                    ->position(Alignment::TopCenter)
             ]);
     }
 }
