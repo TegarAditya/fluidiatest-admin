@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <title>Fluidiatest</title>
     @vite('resources/css/app.css')
 </head>
 
 <body>
-    <div class="relative">
+    <div class="relative font-space">
         <nav class="fixed backdrop-blur-sm w-full top-0">
             <div class="bg-white bg-opacity-75 p-4 h-20 shadow-2xl flex justify-center md:justify-between items-center">
                 <div class="flex items-center justify-start">
@@ -133,7 +133,6 @@
                             </div>
                         </div>
                     </div>
-                    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
                 </div>
             </section>
 
