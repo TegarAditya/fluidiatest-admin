@@ -1,2 +1,2 @@
-compose.yml
-Dockerfile
+node_modules/
+vendor/

@@ -58,6 +58,9 @@ RUN node /usr/local/lib/node_modules/corepack/dist/corepack.js pnpm run build
 # Run Laravel setup
 RUN php artisan storage:link
 
+# Run Laravel optimizer
+RUN php artisan optimize
+
 # Expose port
 EXPOSE 8000
 
