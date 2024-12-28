@@ -20,6 +20,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
 
 class StudentPanelProvider extends PanelProvider
 {
@@ -33,7 +34,6 @@ class StudentPanelProvider extends PanelProvider
                 'primary' => Color::Cyan,
             ])
             ->topNavigation()
-            ->profile()
             ->font('Space Grotesk')
             ->viteTheme('resources/css/filament/student/theme.css')
             ->discoverResources(in: app_path('Filament/Student/Resources'), for: 'App\\Filament\\Student\\Resources')
@@ -61,6 +61,8 @@ class StudentPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
+                BreezyCore::make()
+                    ->myProfile(),
                 LightSwitchPlugin::make()
                     ->position(Alignment::TopCenter)
             ]);
