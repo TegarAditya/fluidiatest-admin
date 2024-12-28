@@ -60,6 +60,7 @@ RUN php artisan storage:link
 
 # Run Laravel optimizer
 RUN php artisan optimize
+RUN php artisan filament:optimize
 
 # Expose port
 EXPOSE 8000
