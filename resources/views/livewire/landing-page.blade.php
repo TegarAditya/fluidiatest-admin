@@ -3,19 +3,22 @@
     <section class="w-full flex flex-col items-center justify-center min-h-[100dvh] gap-7 hero">
         <div>
             <h1 class="font-bold text-white text-5xl text-center md:text-8xl">
-                <span x-data="{ texts: ['Selamat Datang', 'Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
+                <span class="hidden md:inline-block" x-data="{ texts: ['Selamat Datang', 'Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
+                <span class="md:hidden" x-data="{ texts: ['Welcome to', 'Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
             </h1>
         </div>
         <div class="flex justify-center items-center gap-4">
             <a href="#about" class="pt-10">
-                <div class="px-5 shadow-md py-2 rounded-full bg-white">
-                    <p class="text-lg text-[#46338a] font-bold">Pelajari Selengkapnya</p>
-                </div>
+                <button class="px-5 shadow-md py-2 rounded-full bg-white active:animate-jump active:animate-once">
+                    <p class="text-lg text-[#46338a] font-bold">Pelajari Tentang Kami</p>
+                </button>
             </a>
         </div>
     </section>
     <!-- End Header -->
-    <section id="about" class="text-gray-600 pt-20 body-font">
+
+    <!-- Start About -->
+    <section id="about" class="text-gray-600 pt-0 md:pt-20 body-font">
         <div class="container px-5 py-24 mx-auto max-w-screen-xl">
             <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Tentang Fluidiatest</h1>
@@ -40,7 +43,7 @@
                                 </li>
                                 <li>
                                     <h4 class="font-semibold">Keterampilan proses</h4>
-                                    <ol class="list-inside list-decimal">
+                                    <ol class="list-outside pl-4 list-decimal">
                                         <li>Mengamati</li>
                                         <li>Mempertanyakan dan memprediksi</li>
                                         <li>Merencanakan dan melakukan penyelidikan</li>
@@ -66,7 +69,7 @@
                                 </svg>
                             </div>
                             <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Pertemuan Pertama</h2>
-                            <ol class="list-decimal list-inside">
+                            <ol class="list-decimal list-outside pl-4">
                                 <li>Menjelaskan konsep Tekanan Hidrotatis untuk menyelesaikan suatu permasalahan;</li>
                                 <li>Menerapkan persamaan Hukum Pascal dalam menyelesaikan persoalan fluida statis;</li>
                                 <li>Menganalisis hubungan antara luas penampang dengan gaya yang diberikan untuk mengangkat beban melalui sistem fluida tertutup.</li>
@@ -88,8 +91,10 @@
             </div>
         </div>
     </section>
+    <!-- End About -->
 
-    <section id="introduction" class="text-gray-600 pt-20 body-font">
+    <!-- Start Introduction -->
+    <section id="introduction" class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-col">
             <div class="lg:w-4/6 mx-auto">
                 <div class="flex w-full justify-center">
@@ -122,4 +127,5 @@
             </div>
         </div>
     </section>
+    <!-- End Introduction -->
 </main>
