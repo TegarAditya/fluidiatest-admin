@@ -35,8 +35,8 @@
                 <div class="flex justify-end items-center gap-5">
                     <div>
                         <a href="/student">
-                            <div class="px-5 shadow-md py-2 rounded-full bg-[#46338a]">
-                                <p class="text-lg text-white font-bold">
+                            <button class="px-5 shadow-md py-2 rounded-full bg-[#46338a] active:animate-jump active:animate-once">
+                                <p class="text-white font-bold">
                                     @auth
                                     Dashboard
                                     @endauth
@@ -44,7 +44,7 @@
                                     Masuk
                                     @endguest
                                 </p>
-                            </div>
+                            </button>
                         </a>
                     </div>
                 </div>
