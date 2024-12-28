@@ -44,6 +44,8 @@ class QuestionBankResource extends Resource
                 Forms\Components\MarkdownEditor::make('question')
                     ->label('Pertanyaan')
                     ->required()
+                    ->fileAttachmentsDisk('s3')
+                    ->fileAttachmentsDirectory('uploads')
                     ->hiddenOn(['view'])
                     ->columnSpanFull(),
                 Forms\Components\Section::make()
