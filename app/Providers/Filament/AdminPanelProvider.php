@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Admin\Widgets\TestOverview;
+use Awcodes\LightSwitch\Enums\Alignment;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
@@ -74,7 +75,8 @@ class AdminPanelProvider extends PanelProvider
                 FilamentShieldPlugin::make(),
                 FilamentUsersPlugin::make(),
                 ThemesPlugin::make(),
-                LightSwitchPlugin::make(),
+                LightSwitchPlugin::make()
+                    ->position(Alignment::TopCenter),
             ]);
     }
 }
