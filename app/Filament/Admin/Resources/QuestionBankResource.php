@@ -21,9 +21,9 @@ class QuestionBankResource extends Resource
 {
     protected static ?string $model = QuestionBank::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-plus';
+    protected static ?string $navigationIcon = 'heroicon-o-document';
 
-    protected static ?string $navigationGroup = 'Master Soal';
+    protected static ?string $navigationGroup = 'Data Soal';
 
     protected static ?string $navigationLabel = 'Bank Soal';
 
@@ -53,7 +53,7 @@ class QuestionBankResource extends Resource
                     ->schema([
                         Forms\Components\Placeholder::make('preview')
                             ->label('Preview')
-                            ->content(fn($get) => $get('question') ? new HtmlString(self::getParsedQuestionPreview($get('question'))) : 'Tidak ada pertanyaan'),
+                            ->content(fn($get) => $get('question') ? new HtmlString(parseMarkdown($get('question'))) : 'Tidak ada pertanyaan'),
                     ])
             ]);
     }
@@ -119,18 +119,5 @@ class QuestionBankResource extends Resource
             'create' => Pages\CreateQuestionBank::route('/create'),
             'edit' => Pages\EditQuestionBank::route('/{record}/edit'),
         ];
-    }
-
-    protected static function getParsedQuestionPreview(?string $question): string
-    {
-        if (!$question) {
-            return 'Tidak ada pertanyaan';
-        }
-
-        $parsedown = new \Parsedown();
-        $markdownService = new MarkdownService($parsedown);
-        $parsed = $markdownService->parse($question);
-        
-        return $parsed;
     }
 }

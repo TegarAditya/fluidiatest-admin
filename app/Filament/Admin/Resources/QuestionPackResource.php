@@ -22,9 +22,9 @@ class QuestionPackResource extends Resource
 {
     protected static ?string $model = QuestionPack::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
 
-    protected static ?string $navigationGroup = 'Master Soal';
+    protected static ?string $navigationGroup = 'Data Soal';
 
     protected static ?string $navigationLabel = 'Paket Soal';
 
@@ -86,8 +86,8 @@ class QuestionPackResource extends Resource
                                             ->content(function (Get $get) {
                                                 $question_bank = QuestionBank::find($get('question_bank_id'));
 
-                                                return new HtmlString(self::getParsedQuestionPreview($question_bank->question));
-                                            })
+                                                return new HtmlString(parseMarkdown($question_bank->question));
+                                            }),
                                     ])
                             ])
                     ]),
@@ -149,18 +149,5 @@ class QuestionPackResource extends Resource
             'create' => Pages\CreateQuestionPack::route('/create'),
             'edit' => Pages\EditQuestionPack::route('/{record}/edit'),
         ];
-    }
-
-    protected static function getParsedQuestionPreview(?string $question): string
-    {
-        if (!$question) {
-            return 'Tidak ada pertanyaan';
-        }
-
-        $parsedown = new \Parsedown();
-        $markdownService = new MarkdownService($parsedown);
-        $parsed = $markdownService->parse($question);
-
-        return $parsed;
     }
 }
