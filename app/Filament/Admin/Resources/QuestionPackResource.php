@@ -61,10 +61,10 @@ class QuestionPackResource extends Resource
                                     ->label('Tingkat')
                                     ->required()
                                     ->options([
-                                        1 => '1 Tier',
-                                        0 => '2 Tier',
+                                        0 => '1 Tier',
+                                        1 => '2 Tier',
                                     ])
-                                    ->default(false)
+                                    ->default(true)
                                     ->inline(),
                                 Forms\Components\MarkdownEditor::make('description')
                                     ->label('Deskripsi')
