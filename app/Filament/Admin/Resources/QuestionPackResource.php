@@ -39,7 +39,7 @@ class QuestionPackResource extends Resource
                     ->schema([
                         Forms\Components\Tabs\Tab::make('question_pack_tab_general')
                             ->label('Umum')
-                            ->columns(3)
+                            ->columns(2)
                             ->schema([
                                 Forms\Components\TextInput::make('code')
                                     ->label('Kode')
@@ -54,6 +54,15 @@ class QuestionPackResource extends Resource
                                     ->options([
                                         1 => 'Aktif',
                                         0 => 'Tidak Aktif',
+                                    ])
+                                    ->default(false)
+                                    ->inline(),
+                                Forms\Components\ToggleButtons::make('is_multi_tier')
+                                    ->label('Tingkat')
+                                    ->required()
+                                    ->options([
+                                        1 => '1 Tier',
+                                        0 => '2 Tier',
                                     ])
                                     ->default(false)
                                     ->inline(),
