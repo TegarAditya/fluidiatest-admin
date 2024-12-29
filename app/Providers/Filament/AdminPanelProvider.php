@@ -9,6 +9,7 @@ use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -52,6 +53,18 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
                 TestOverview::class,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Data Materi'),
+                NavigationGroup::make()
+                    ->label('Data Soal'),
+                NavigationGroup::make()
+                    ->label('Data Hasil'),
+                NavigationGroup::make()
+                    ->label('Data Sekolah'),
+                NavigationGroup::make()
+                    ->label('Pelindung'),
             ])
             ->middleware([
                 EncryptCookies::class,
