@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Hidehalo\Nanoid\Client;
 use Illuminate\Database\Eloquent\Model;
 
 class QuestionPack extends Model
 {
-    protected $fillable = ['code', 'duration', 'description', 'is_active'];
+    protected $fillable = ['public_id', 'code', 'duration', 'description', 'is_active'];
 
     public function questions()
     {
@@ -16,5 +17,21 @@ class QuestionPack extends Model
     public function questionPackQuestionBank()
     {
         return $this->hasMany(QuestionPackQuestionBank::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        $nanoid = new Client();
+
+        $generatePublicId = function ($model) use ($nanoid) {
+            if ($model->public_id === null) {
+                $model->public_id = generatePublicId();
+            }
+        };
+
+        QuestionPack::creating($generatePublicId);
+        QuestionPack::updating($generatePublicId);
     }
 }
