@@ -31,3 +31,16 @@ if (! function_exists('getTestTypeOption')) {
         ];
     }
 }
+
+if (! function_exists('parseMarkdown')) {
+    /**
+     * Parses the specified Markdown content.
+     *
+     * @param string $content The content to parse.
+     * @return string The parsed content.
+     */
+    function parseMarkdown(string $content): string
+    {
+        return (new Parsedown())->text($content);
+    }
+}
