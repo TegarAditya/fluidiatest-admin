@@ -33,7 +33,7 @@
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                 </svg>
                             </div>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Capaian Pembelajaran Fase F</h2>
+                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Capaian Pembelajaran</h2>
                             <p class="leading-relaxed text-base">
                                 Pada fase F, capaian pembelajaran terdiri dari elemen pemahaman fisika dan keterampilan proses.
                             <ul class="flex flex-col gap-2 py-2">
@@ -109,13 +109,10 @@
                     </button>
                 </div>
                 <!-- Pengembang -->
-                <div x-bind:class="open ? 'hidden' : ''" class="flex flex-col sm:flex-row mt-5">
+                <div x-bind:class="open ? 'hidden' : ''" x-transition.opacity class="flex flex-col sm:flex-row mt-5">
                     <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                        <div class="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-20 h-20" viewBox="0 0 24 24">
-                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
+                        <div class="w-40 h-40 rounded-full overflow-hidden object-top object-cover inline-flex items-start justify-center bg-gray-200 text-gray-400">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQHUVGAg01pnJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696510557599?e=1741219200&v=beta&t=b2oIR8om7Uo5TUoClfX_6QXMq44TwWDP0imzrnM9k1Y" alt="">
                         </div>
                         <div class="flex flex-col items-center text-center justify-center">
                             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Nurdiyanti, S.Pd.</h2>
@@ -133,14 +130,12 @@
                         </a>
                     </div>
                 </div>
+
                 <!-- Dosen Pembimbing -->
-                <div x-bind:class="! open ? 'hidden' : ''" class="flex flex-col sm:flex-row mt-5">
+                <div x-bind:class="! open ? 'hidden' : ''" x-transition.opacity class="flex flex-col sm:flex-row mt-5">
                     <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                        <div class="w-40 h-40 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-20 h-20" viewBox="0 0 24 24">
-                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
+                        <div class="w-40 h-40 rounded-full overflow-hidden object-bottom object-cover inline-flex items-end justify-center bg-gray-200 text-gray-400">
+                            <img class="scale-150" src="https://media.canva.com/v2/image-resize/format:PNG/height:768/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FK7Z-E%2FMAGaMQK7Z-E%2F1%2Fp.png/watermark:F/width:829?csig=AAAAAAAAAAAAAAAAAAAAAKzSELcBcllkmX3U5FqITgAmmIjrNRRIyqPRjuXaRDMr&exp=1735496298&osig=AAAAAAAAAAAAAAAAAAAAABvlrxR8dsTpRkkYMcAVeNJLWWAUNkYD3Q_ExGttSRfZ&signer=media-rpc&x-canva-quality=screen_2x" alt="">
                         </div>
                         <div class="flex flex-col items-center text-center justify-center">
                             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Dr. Drs. Supahar, M.Si</h2>

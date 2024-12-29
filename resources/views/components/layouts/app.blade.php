@@ -15,7 +15,7 @@
 <body>
     <div class="relative font-space">
         <!-- Start Nav -->
-        <nav class="fixed w-full top-0">
+        <nav class="fixed w-full top-0 z-10">
             <div class="bg-white p-4 h-20 shadow-2xl w-full grid grid-cols-2 md:grid-cols-3 items-center">
                 <div class="flex items-center justify-start">
                     <div class="bg-white flex items-center z-10 p-1 rounded-full aspect-square">
