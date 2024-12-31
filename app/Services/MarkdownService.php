@@ -2,15 +2,26 @@
 
 namespace App\Services;
 
-use Parsedown;
+use BenjaminHoegh\ParsedownExtended\ParsedownExtended;
 
 class MarkdownService
 {
     protected $parsedown;
 
-    public function __construct(Parsedown $parsedown)
+    public function __construct(ParsedownExtended $parsedown)
     {
-        $this->parsedown = $parsedown;
+        $this->parsedown = $parsedown->config()->set('math', [
+            'inline' => [
+                'delimiters' => [
+                    ['left' => '$', 'right' => '$'],
+                ],
+            ],
+            'block' => [
+                'delimiters' => [
+                    ['left' => '$$', 'right' => '$$'],
+                ],
+            ],
+        ]);
     }
 
     public function parse($content)
