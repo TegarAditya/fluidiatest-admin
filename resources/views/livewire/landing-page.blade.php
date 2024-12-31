@@ -60,6 +60,7 @@
                     </div>
                 </div>
                 <div class="xl:w-1/2 md:w-1/2 p-4 gap-8 flex flex-col">
+                    @foreach($learningPurpose as $purpose)
                     <div>
                         <div class="border border-gray-200 p-6 rounded-lg">
                             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
@@ -68,25 +69,13 @@
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
                             </div>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Pertemuan Pertama</h2>
-                            <ol class="list-decimal list-outside pl-4">
-                                <li>Menjelaskan konsep Tekanan Hidrotatis untuk menyelesaikan suatu permasalahan;</li>
-                                <li>Menerapkan persamaan Hukum Pascal dalam menyelesaikan persoalan fluida statis;</li>
-                                <li>Menganalisis hubungan antara luas penampang dengan gaya yang diberikan untuk mengangkat beban melalui sistem fluida tertutup.</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="border border-gray-200 p-6 rounded-lg">
-                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
-                                </svg>
+                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{ $purpose->name }}</h2>
+                            <div class="prose prose-ol:list-outside prose-ol:list-decimal">
+                                {!! parseMarkdown($purpose->learning_goal) !!}
                             </div>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Pertemuan Kedua</h2>
-                            <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
