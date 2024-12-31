@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c60d10e09541131df168bc0f042ac0d",
+    "content-hash": "a2aba26dfac208fa72a0d11802885ba9",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -350,6 +350,71 @@
                 "source": "https://github.com/Bacon/BaconQrCode/tree/v3.0.1"
             },
             "time": "2024-10-01T13:55:55+00:00"
+        },
+        {
+            "name": "benjaminhoegh/parsedown-extended",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BenjaminHoegh/ParsedownExtended.git",
+                "reference": "d21bc34fd4ff5dcb13d34b4e4da074da5e70504d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BenjaminHoegh/ParsedownExtended/zipball/d21bc34fd4ff5dcb13d34b4e4da074da5e70504d",
+                "reference": "d21bc34fd4ff5dcb13d34b4e4da074da5e70504d",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": ">=1.7.4 <2.0",
+                "erusev/parsedown-extra": "^0.8.1",
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.64",
+                "phpunit/phpunit": "^9.6",
+                "vimeo/psalm": "^5.26"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BenjaminHoegh\\ParsedownExtended\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Hoegh",
+                    "homepage": "https://github.com/benjaminhoegh"
+                }
+            ],
+            "description": "An extension for Parsedown.",
+            "homepage": "https://github.com/benjaminhoegh/parsedown-extended",
+            "keywords": [
+                "markdown",
+                "markdown extended",
+                "parsedown",
+                "parsedown extended"
+            ],
+            "support": {
+                "issues": "https://github.com/BenjaminHoegh/ParsedownExtended/issues",
+                "source": "https://github.com/BenjaminHoegh/ParsedownExtended/tree/v1.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/BenjaminHoegh",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.buymeacoffee.com/BenjaminHoegh",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-11-28T16:10:12+00:00"
         },
         {
             "name": "bezhansalleh/filament-shield",
@@ -1449,6 +1514,57 @@
                 "source": "https://github.com/erusev/parsedown/tree/1.7.x"
             },
             "time": "2019-12-30T22:54:17+00:00"
+        },
+        {
+            "name": "erusev/parsedown-extra",
+            "version": "0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown-extra.git",
+                "reference": "91ac3ff98f0cea243bdccc688df43810f044dcef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/91ac3ff98f0cea243bdccc688df43810f044dcef",
+                "reference": "91ac3ff98f0cea243bdccc688df43810f044dcef",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ParsedownExtra": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "An extension of Parsedown that adds support for Markdown Extra.",
+            "homepage": "https://github.com/erusev/parsedown-extra",
+            "keywords": [
+                "markdown",
+                "markdown extra",
+                "parsedown",
+                "parser"
+            ],
+            "support": {
+                "issues": "https://github.com/erusev/parsedown-extra/issues",
+                "source": "https://github.com/erusev/parsedown-extra/tree/0.8.x"
+            },
+            "time": "2019-12-30T23:20:37+00:00"
         },
         {
             "name": "filament/actions",
