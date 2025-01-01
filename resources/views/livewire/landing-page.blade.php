@@ -27,7 +27,7 @@
             <div class="flex flex-wrap">
                 <div class="xl:w-1/2 md:w-1/2 p-4">
                     <div>
-                        <div class="border border-gray-200 p-6 rounded-lg">
+                        <div class="border border-gray-200 bg-white p-6 rounded-lg">
                             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -61,8 +61,8 @@
                 </div>
                 <div class="xl:w-1/2 md:w-1/2 p-4 gap-8 flex flex-col">
                     @foreach($learningPurpose as $purpose)
-                    <div>
-                        <div class="border border-gray-200 p-6 rounded-lg">
+                    <div wire:key="{{ $purpose->id }}">
+                        <div class="border border-gray-200 bg-white p-6 rounded-lg">
                             <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
                                     <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
@@ -70,8 +70,12 @@
                                 </svg>
                             </div>
                             <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{ $purpose->name }}</h2>
-                            <div class="prose prose-ol:list-outside prose-ol:list-decimal">
+                            <div class="relative prose prose-ol:list-outside prose-ol:list-decimal max-h-28 overflow-hidden">
                                 {!! parseMarkdown($purpose->learning_goal) !!}
+                                <button class="absolute inset-x-0 bottom-0 bg-white pt-4">
+                                    <span class="text-indigo-500 inline-flex items-center">Read More
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -110,7 +114,7 @@
                             <p class="text-base">NIM. 23031240018</p>
                         </div>
                     </div>
-                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 bg-white rounded-e-lg sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                         <p class="leading-relaxed text-lg mb-4">Nurdiyanti yang biasa disapa Yayan merupakan perempuan kelahiran Purbalingga, 15 Januari 2000. Pengembang memulai pendidikan tingginya di program Pendidikan Fisika Universitas Sebelas Maret Surakarta. Saat ini pengembang tengah menyelesaikan studi Magister di Pendidikan Fisika Universitas Negeri Yogyakarta. Pengembang memiliki ketertarikan pada bidang asesmen pembelajaran fisika dan pengembangan media pembelajaran. Selain itu, pengembang juga aktif dalam bidang kepenulisan dan kegiatan sosial masyarakat dengan menginisiasi platform Dangau Mucal.</p>
                         <a class="text-indigo-500 inline-flex items-center">Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
@@ -133,7 +137,7 @@
                             <p class="text-base">NIP. 196803151994121001</p>
                         </div>
                     </div>
-                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 bg-white rounded-e-lg sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                         <p class="leading-relaxed text-lg mb-4">Dr. Drs. Supahar, M.Si adalah dosen Departemen Pendidikan Fisika, Fakultas Matematika dan Ilmu Pengetahuan Alam dan Departemen Penelitian dan Evaluasi Pendidikan, Sekolah Pascasarjana, Universitas Negeri Yogyakarta. Penelitiannya berfokus pada pendidikan fisika, pengukuran dan asesmen. </p>
                         <a class="text-indigo-500 inline-flex items-center">Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
