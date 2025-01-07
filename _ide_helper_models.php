@@ -16,6 +16,75 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property string $learning_goal
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereLearningGoal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningGoal whereUpdatedAt($value)
+ */
+	class LearningGoal extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $description
+ * @property string $attachment
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereAttachment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningMaterial whereUpdatedAt($value)
+ */
+	class LearningMaterial extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $learning_outcome
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome whereLearningOutcome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LearningOutcome whereUpdatedAt($value)
+ */
+	class LearningOutcome extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $code
  * @property string $question
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -101,9 +170,11 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string|null $public_id
  * @property string $code
  * @property string $description
  * @property int $is_active
+ * @property int $is_multi_tier
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -123,6 +194,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereDuration($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereIsMultiTier($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack wherePublicId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|QuestionPack whereUpdatedAt($value)
  */
