@@ -11,12 +11,15 @@
                     {{ $materi->description }}
                 </p>
             </div>
-            <div class="px-4 pb-4 pt-0 mt-2">
+            <div class="px-4 pb-4 pt-0 mt-2 flex flex-col gap-2">
                 <a href="{{ $s3Url }}/{{ $materi->attachment }}" target="_blank">
                     <button class="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
                         Unduh Materi
                     </button>
                 </a>
+                <p class="text-wrap text-xs">
+                    {{ $s3Url }}/{{ $materi->attachment }}
+                </p>
             </div>
         </div>
         @endforeach
