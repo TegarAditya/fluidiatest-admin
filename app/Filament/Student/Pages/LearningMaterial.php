@@ -2,6 +2,7 @@
 
 namespace App\Filament\Student\Pages;
 
+use App\Models\LearningMaterial as Material;
 use Filament\Pages\Page;
 
 class LearningMaterial extends Page
@@ -9,4 +10,11 @@ class LearningMaterial extends Page
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static string $view = 'filament.student.pages.learning-material';
+
+    public $learningMaterial;
+
+    public function mount()
+    {
+        $this->learningMaterial = Material::all();
+    }
 }
