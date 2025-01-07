@@ -6,15 +6,15 @@ use App\Models\QuestionPack;
 use Filament\Widgets\Widget;
 use Illuminate\Support\Facades\Auth;
 
-class ExamEntryWidget extends Widget
+class DiagnosticExamEntryWidget extends Widget
 {
     protected static string $view = 'filament.student.widgets.exam-entry-widget';
 
     protected static bool $isLazy = false;
 
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 2;
 
-    public string $title = 'Fluidiatest Pre/Post Test';
+    public string $title = 'Fluidiatest Diagnostic Test';
 
     public function getUser()
     {
@@ -23,6 +23,6 @@ class ExamEntryWidget extends Widget
 
     public function getExams()
     {
-        return QuestionPack::all()->where('is_active', true)->where('is_multi_tier', false);
+        return QuestionPack::all()->where('is_active', true)->where('is_multi_tier', true);
     }
 }

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Filament\Student\Pages;
+
+use App\Models\LearningGoal;
+use Filament\Pages\Page;
+
+class LearningOutcome extends Page
+{
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+
+    protected static string $view = 'filament.student.pages.learning-outcome';
+
+    public $learningPurpose;
+
+    public function mount()
+    {
+        $this->learningPurpose = LearningGoal::all();
+    }
+}

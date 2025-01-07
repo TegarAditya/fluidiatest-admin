@@ -2,11 +2,11 @@
     <x-filament::section>
         <div>
             <h1 class="text-xl font-semibold">
-                Fluidiatest Diagnostic Test
+                {{ $title }}
             </h1>
             <hr class="my-2">
             <p class="text-sm">
-                Selamat datang di Fluidiatest Diagnostic Test. Silahkan klik tombol dibawah ini untuk memulai tes.
+                Selamat datang di {{ $title }}. Silahkan klik tombol dibawah ini untuk memulai tes.
             </p>
         </div>
         <br class="my-2">
