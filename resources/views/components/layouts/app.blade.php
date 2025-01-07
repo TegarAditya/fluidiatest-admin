@@ -54,7 +54,7 @@
 
         {{ $slot }}
 
-        <div class="background fixed top-0 -z-20 w-screen min-h-[100dvh]"></div>
+        <div class="background fixed top-0 -z-50 w-screen min-h-[100dvh]"></div>
 
         <!-- Start Footer -->
         <footer class="text-gray-600 body-font">
@@ -107,7 +107,7 @@
 
     .background {
         background-color: #e5e5f7;
-        opacity: 0.05;
+        opacity: 0.03;
         background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 40px), repeating-linear-gradient(#444cf755, #444cf7);
     }
 </style>

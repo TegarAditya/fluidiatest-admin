@@ -20,66 +20,25 @@
     <!-- Start About -->
     <section id="about" class="text-gray-600 pt-0 md:pt-20 body-font">
         <div class="container px-5 py-24 mx-auto max-w-screen-xl">
-            <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+            <div class="flex flex-wrap w-full mb-10 flex-col items-center text-center">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Tentang Fluidiatest</h1>
-                <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.</p>
             </div>
-            <div class="flex flex-wrap">
-                <div class="xl:w-1/2 md:w-1/2 p-4">
+            <div class="flex flex-wrap w-full justify-center">
+                <div class="p-4 max-w-screen-xl">
                     <div>
-                        <div class="border border-gray-200 bg-white p-6 rounded-lg">
-                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Capaian Pembelajaran</h2>
+                        <div class="flex flex-col gap-4 border border-gray-200 bg-white p-6 rounded-lg">
                             <p class="leading-relaxed text-base">
-                                Pada fase F, capaian pembelajaran terdiri dari elemen pemahaman fisika dan keterampilan proses.
-                            <ul class="flex flex-col gap-2 py-2">
-                                <li>
-                                    <h4 class="font-semibold">Pemahaman fisika</h4>
-                                    <p>Peserta didik mampu menerapkan konsep dan prinsip fluida dalam menyelesaikan masalah.</p>
-                                </li>
-                                <li>
-                                    <h4 class="font-semibold">Keterampilan proses</h4>
-                                    <ol class="list-outside pl-4 list-decimal">
-                                        <li>Mengamati</li>
-                                        <li>Mempertanyakan dan memprediksi</li>
-                                        <li>Merencanakan dan melakukan penyelidikan</li>
-                                        <li>Memproses dan menganalisis data dan informasi</li>
-                                        <li>Mencipta</li>
-                                        <li>Mengevaluasi dan Refleksi</li>
-                                        <li>Mengkomunikasikan hasil</li>
-                                    </ol>
-                                </li>
-                            </ul>
-                            Sedangkan Alur Tujuan Pembelajaran untuk materi Fluida yaitu Menguraikan prinsip dan konsep fluida melalui kegiatan penyelidikan untuk memecahkan masalah.
+                                Fluids Diagnostic Test (Fluidiatest) adalah media tes diagnostik fisika pada materi fluida dengan berfokus pada identifikasi kelemahan pemahaman konsep dan representasi matematis pada peserta didik fase F kelas XI di tingkat SMA/MA.
+                            </p>
+                            <p>
+                                Jenis asesmen yang digunakan berupa asesmen formatif dengan butir soal pilihan majemuk dua lapis (two tier) yang dilengkapi diagnosis dan saran berdasar setiap pilihan jawaban peserta didik.
+                                E-diagnostik ini terdiri dari sub menu instrumen penilaian diagnostik yang dapat diakses di setiap pertemuan (sub pokok bahasan), serta terdapat paket soal pretest dan posttest yang digunakan sebagai sumber analisis efektivitas kegunaan Fluidiatest.
+                            </p>
+                            <p class="w-full text-center font-bold">
+                                Selamat dan semangat belajar di fluidiatest.id ya😊
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="xl:w-1/2 md:w-1/2 p-4 gap-8 flex flex-col">
-                    @foreach($learningPurpose as $purpose)
-                    <div wire:key="{{ $purpose->id }}">
-                        <div class="border border-gray-200 bg-white p-6 rounded-lg">
-                            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </div>
-                            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{ $purpose->name }}</h2>
-                            <div class="relative prose prose-ol:list-outside prose-ol:list-decimal max-h-28 overflow-hidden">
-                                {!! parseMarkdown($purpose->learning_goal) !!}
-                                <button class="absolute inset-x-0 bottom-0 bg-white pt-4">
-                                    <span class="text-indigo-500 inline-flex items-center">Read More
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
                 </div>
             </div>
         </div>
