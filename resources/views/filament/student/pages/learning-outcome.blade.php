@@ -1,6 +1,6 @@
 <x-filament-panels::page>
-    <section id="about" class="text-gray-900 pt-0 md:pt-20 body-font">
-        <div class="container py-24 mx-auto">
+    <section id="about" class="text-gray-900 body-font">
+        <div class="container mx-auto">
             <div class="flex flex-col gap-8">
                 <div class="w-full">
                     <div>
@@ -14,7 +14,7 @@
                                 </li>
                                 <li>
                                     <h4 class="font-semibold">Keterampilan proses</h4>
-                                    <ol class="list-outside list-decimal">
+                                    <ol class="ml-5 list-outside list-decimal">
                                         <li>Mengamati</li>
                                         <li>Mempertanyakan dan memprediksi</li>
                                         <li>Merencanakan dan melakukan penyelidikan</li>
@@ -35,7 +35,7 @@
                     <div wire:key="{{ $purpose->id }}">
                         <div class="border border-gray-200 bg-white p-6 rounded-lg">
                             <h2 class="text-lg text-gray-900 font-medium title-font mb-2">{{ $purpose->name }}</h2>
-                            <div class="relative prose prose-ol:list-outside prose-ol:list-decimal max-h-28 overflow-hidden">
+                            <div class="relative prose prose-ol:list-outside prose-ol:list-decimal">
                                 {!! parseMarkdown($purpose->learning_goal) !!}
                             </div>
                         </div>
