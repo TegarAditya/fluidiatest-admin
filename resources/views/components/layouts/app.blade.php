@@ -27,9 +27,9 @@
                 </div>
                 <div class="hidden md:flex justify-center">
                     <ul class="flex font-semibold gap-4">
-                        <li class="hover:font-semibold"><a href="#about">Tentang</a></li>
-                        <li class="hover:font-semibold"><a href="#introduction">Profil</a></li>
-                        <li class="hover:font-semibold"><a href="#">Tutorial</a></li>
+                        <li class="hover:font-semibold"><a href="/#about">Tentang</a></li>
+                        <li class="hover:font-semibold"><a href="/#introduction">Profil</a></li>
+                        <li class="hover:font-semibold"><a href="/tutorial">Tutorial</a></li>
                     </ul>
                 </div>
                 <div class="flex justify-end items-center gap-5">
