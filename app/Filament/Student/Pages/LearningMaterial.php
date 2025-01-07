@@ -13,8 +13,12 @@ class LearningMaterial extends Page
 
     public $learningMaterial;
 
+    public $s3Url;
+
     public function mount()
     {
         $this->learningMaterial = Material::all();
+
+        $this->s3Url = env('AWS_ENDPOINT') . '/' . env('AWS_BUCKET');
     }
 }
