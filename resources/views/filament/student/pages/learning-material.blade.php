@@ -17,9 +17,6 @@
                         Unduh Materi
                     </button>
                 </a>
-                <p class="text-wrap text-xs">
-                    {{ $s3Url }}/{{ $materi->attachment }}
-                </p>
             </div>
         </div>
         @endforeach
