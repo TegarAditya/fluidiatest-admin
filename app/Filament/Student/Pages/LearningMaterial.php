@@ -19,6 +19,6 @@ class LearningMaterial extends Page
     {
         $this->learningMaterial = Material::all();
 
-        $this->s3Url = env('AWS_ENDPOINT') . '/' . env('AWS_BUCKET');
+        $this->s3Url = config('filesystems.disks.s3.endpoint') . '/' . config('filesystems.disks.s3.bucket');
     }
 }
