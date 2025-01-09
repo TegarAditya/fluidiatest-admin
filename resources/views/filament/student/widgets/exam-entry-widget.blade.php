@@ -13,7 +13,7 @@
         <div class="grid grid-cols-2 md:flex w-full gap-2">
             @if ($this->getExams())
             @foreach ($this->getExams() as $exam)
-            <x-filament::button color="primary" tag="a">
+            <x-filament::button color="primary" tag="a" href="{{ $clientUrl }}/?test_id={{ $exam->public_id }}">
                 <span id="countdown" class="font-mono">{{ $exam->code }}</span>
             </x-filament::button>
             @endforeach

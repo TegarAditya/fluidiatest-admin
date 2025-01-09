@@ -16,6 +16,13 @@ class ExamEntryWidget extends Widget
 
     public string $title = 'Fluidiatest Pre/Post Test';
 
+    public $clientUrl;
+
+    public function mount()
+    {
+        $this->clientUrl = config('app.test-client.url');
+    }
+
     public function getUser()
     {
         return Auth::user();
