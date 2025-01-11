@@ -64,7 +64,7 @@
                 <div x-bind:class="open ? 'hidden' : ''" x-transition.opacity class="flex flex-col sm:flex-row mt-5">
                     <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
                         <div class="w-40 h-40 rounded-full overflow-hidden object-top object-cover inline-flex items-start justify-center bg-gray-200 text-gray-400">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQHUVGAg01pnJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696510557599?e=1741219200&v=beta&t=b2oIR8om7Uo5TUoClfX_6QXMq44TwWDP0imzrnM9k1Y" alt="">
+                            <img src="https://nos.wjv-1.neo.id/fluidiatest/uploads/pengembang.png" alt="">
                         </div>
                         <div class="flex flex-col items-center text-center justify-center">
                             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Nurdiyanti, S.Pd.</h2>
@@ -75,11 +75,6 @@
                     </div>
                     <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 bg-white rounded-e-lg sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                         <p class="leading-relaxed text-lg mb-4">Nurdiyanti yang biasa disapa Yayan merupakan perempuan kelahiran Purbalingga, 15 Januari 2000. Pengembang memulai pendidikan tingginya di program Pendidikan Fisika Universitas Sebelas Maret Surakarta. Saat ini pengembang tengah menyelesaikan studi Magister di Pendidikan Fisika Universitas Negeri Yogyakarta. Pengembang memiliki ketertarikan pada bidang asesmen pembelajaran fisika dan pengembangan media pembelajaran. Selain itu, pengembang juga aktif dalam bidang kepenulisan dan kegiatan sosial masyarakat dengan menginisiasi platform Dangau Mucal.</p>
-                        <a class="text-indigo-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
                     </div>
                 </div>
 
@@ -87,7 +82,7 @@
                 <div x-bind:class="! open ? 'hidden' : ''" x-transition.opacity class="flex flex-col sm:flex-row mt-5">
                     <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
                         <div class="w-40 h-40 rounded-full overflow-hidden object-bottom object-cover inline-flex items-end justify-center bg-gray-200 text-gray-400">
-                            <img class="scale-150" src="https://media.canva.com/v2/image-resize/format:PNG/height:768/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FK7Z-E%2FMAGaMQK7Z-E%2F1%2Fp.png/watermark:F/width:829?csig=AAAAAAAAAAAAAAAAAAAAAKzSELcBcllkmX3U5FqITgAmmIjrNRRIyqPRjuXaRDMr&exp=1735496298&osig=AAAAAAAAAAAAAAAAAAAAABvlrxR8dsTpRkkYMcAVeNJLWWAUNkYD3Q_ExGttSRfZ&signer=media-rpc&x-canva-quality=screen_2x" alt="">
+                            <img class="scale-150" src="https://nos.wjv-1.neo.id/fluidiatest/uploads/pembimbing.png" alt="">
                         </div>
                         <div class="flex flex-col items-center text-center justify-center">
                             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Dr. Drs. Supahar, M.Si</h2>
@@ -98,11 +93,6 @@
                     </div>
                     <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 bg-white rounded-e-lg sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                         <p class="leading-relaxed text-lg mb-4">Dr. Drs. Supahar, M.Si adalah dosen Departemen Pendidikan Fisika, Fakultas Matematika dan Ilmu Pengetahuan Alam dan Departemen Penelitian dan Evaluasi Pendidikan, Sekolah Pascasarjana, Universitas Negeri Yogyakarta. Penelitiannya berfokus pada pendidikan fisika, pengukuran dan asesmen. </p>
-                        <a class="text-indigo-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,8 @@ class LearningOutcome extends Page
 
     protected static string $view = 'filament.student.pages.learning-outcome';
 
+    protected static ?string $title = 'Learning Objective';
+
     public $learningPurpose;
 
     public function mount()
