@@ -109,7 +109,7 @@ class StudentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageUsers::route('/'),
+            'index' => Pages\ManageStudents::route('/'),
         ];
     }
 }

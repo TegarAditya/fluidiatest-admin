@@ -6,7 +6,7 @@ use App\Filament\Admin\Resources\StudentResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 
-class ManageUsers extends ManageRecords
+class ManageStudents extends ManageRecords
 {
     protected static string $resource = StudentResource::class;
 
