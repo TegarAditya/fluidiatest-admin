@@ -69,6 +69,8 @@ class QuestionPackResource extends Resource
                                 Forms\Components\MarkdownEditor::make('description')
                                     ->label('Deskripsi')
                                     ->default('Masukkan deskripsi paket soal')
+                                    ->fileAttachmentsDisk('s3')
+                                    ->fileAttachmentsDirectory('uploads')
                                     ->required()
                                     ->columnSpanFull(),
                             ]),
