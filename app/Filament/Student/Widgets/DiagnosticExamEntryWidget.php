@@ -18,6 +18,11 @@ class DiagnosticExamEntryWidget extends Widget
 
     public $clientUrl;
 
+    public static function canView(): bool
+    {
+        return (new self())->getExams()->count() > 0;
+    }
+
     public function mount()
     {
         $this->clientUrl = config('app.test-client.url');
