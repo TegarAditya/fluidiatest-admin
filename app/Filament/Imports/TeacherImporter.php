@@ -33,11 +33,11 @@ class TeacherImporter extends Importer
     public function resolveRecord(): ?User
     {
         $user = User::firstOrNew([
-            'email' => $this->data['Email'],
+            'email' => $this->data['email'],
         ]);
 
-        if (!$user->exists) {
-            $user->role = 'teacher';
+        if ($user->exists) {
+            $user->assignRole('teacher');
         }
 
         return $user;

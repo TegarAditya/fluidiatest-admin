@@ -25,7 +25,7 @@ class StudentImporter extends Importer
                 ->sensitive()
                 ->rules(['string', 'max:255']),
             ImportColumn::make('school')
-                ->relationship(resolveUsing: 'code')
+                ->relationship(resolveUsing: ['code', 'name'])
                 ->requiredMapping(),
         ];
     }
@@ -33,12 +33,10 @@ class StudentImporter extends Importer
     public function resolveRecord(): ?User
     {
         $user = User::firstOrNew([
-            'email' => $this->data['Email'],
+            'email' => $this->data['email'],
         ]);
 
-        if (!$user->exists) {
-            $user->role = 'student';
-        }
+        $user->assignRole('student');
 
         return $user;
     }
