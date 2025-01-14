@@ -41,6 +41,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->brandName('Fluidiatest Admin')
             ->sidebarCollapsibleOnDesktop()
+            ->databaseNotifications()
             ->databaseTransactions()
             ->unsavedChangesAlerts()
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\Resources')
