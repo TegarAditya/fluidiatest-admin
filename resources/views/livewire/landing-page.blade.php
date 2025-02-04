@@ -3,8 +3,8 @@
     <section class="w-full flex flex-col items-center justify-center min-h-[100dvh] gap-7 hero">
         <div>
             <h1 class="font-bold text-white text-5xl text-center md:text-8xl">
-                <span class="hidden md:inline-block" x-data="{ texts: ['Selamat Datang', 'Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
-                <span class="md:hidden" x-data="{ texts: ['Welcome to', 'Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
+                <span class="hidden md:inline-block" x-data="{ texts: ['Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
+                <span class="md:hidden" x-data="{ texts: ['Fludiatest.id'] }" x-typewriter.cursor="texts"></span>
             </h1>
         </div>
         <div class="flex justify-center items-center gap-4">
