@@ -58,6 +58,11 @@ class User extends Authenticatable
         return $this->belongsTo(School::class);
     }
 
+    public function examAttempts()
+    {
+        return $this->hasMany(ExamAttempt::class);
+    }
+
     protected static function boot()
     {
         parent::boot();
