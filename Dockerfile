@@ -1,9 +1,12 @@
 # Copy Node.js and Corepack from node:alpine
 FROM node:20-alpine AS nodejs
 
+RUN npm install -g corepack@latest
+
 # Enable Corepack and prepare pnpm
-RUN corepack enable \
-    && corepack prepare pnpm@latest --activate
+RUN corepack enable 
+
+RUN corepack prepare pnpm --activate
 
 # Base image with FrankenPHP
 FROM dunglas/frankenphp:php8.3-alpine AS base
