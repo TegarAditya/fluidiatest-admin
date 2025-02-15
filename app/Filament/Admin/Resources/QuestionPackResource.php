@@ -159,6 +159,7 @@ class QuestionPackResource extends Resource
             'index' => Pages\ListQuestionPacks::route('/'),
             'create' => Pages\CreateQuestionPack::route('/create'),
             'edit' => Pages\EditQuestionPack::route('/{record}/edit'),
+            'result' => Pages\ResultQuestionPack::route('/{record}/result'),
         ];
     }
 }
