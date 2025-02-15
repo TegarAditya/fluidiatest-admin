@@ -13,6 +13,10 @@ class EditQuestionPack extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('result')
+                ->button()
+                ->label('Lihat Hasil')
+                ->url(fn () => route('filament.admin.resources.question-packs.result', $this->record)),
             Actions\DeleteAction::make(),
         ];
     }
