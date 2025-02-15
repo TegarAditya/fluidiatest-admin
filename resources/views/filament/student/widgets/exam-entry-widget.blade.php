@@ -6,7 +6,7 @@
             </h1>
             <hr class="my-2">
             <p class="text-sm">
-                Selamat datang di {{ $title }}. Silahkan klik tombol dibawah ini untuk memulai tes.
+                Selamat datang di {{ $title }}. Silahkan klik tombol dibawah ini untuk memulai tes dan melihat hasil.
             </p>
         </div>
         <br class="my-2">
