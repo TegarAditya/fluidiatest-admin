@@ -8,7 +8,7 @@ class ExamAttempt extends Model
 {
     protected $fillable = ['user_id', 'question_pack_id', 'attempt_id'];
 
-    public function student()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
