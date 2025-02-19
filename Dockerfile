@@ -33,7 +33,7 @@ RUN install-php-extensions \
     tokenizer \
     xml \
     zip \
-    @composer
+    @composer 
 
 # Copy Node.js and Corepack binaries
 COPY --from=nodejs /usr/local/bin/node /usr/local/bin/
