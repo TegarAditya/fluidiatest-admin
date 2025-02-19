@@ -62,6 +62,7 @@ class ResultQuestionPack extends Page implements HasTable
                     ->button()
                     ->icon('heroicon-o-eye')
                     ->color('info')
+                    ->url(fn($record) => config('app.test-client.url') . '/result/' . $record->attempt_id, true)
             ])
             ->bulkActions([
                 // ...
