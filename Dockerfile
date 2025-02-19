@@ -32,18 +32,13 @@ RUN install-php-extensions \
     session \
     tokenizer \
     xml \
-    zip
+    zip \
+    @composer
 
 # Copy Node.js and Corepack binaries
 COPY --from=nodejs /usr/local/bin/node /usr/local/bin/
 COPY --from=nodejs /usr/local/lib/node_modules /usr/local/lib/node_modules/
 COPY --from=nodejs /usr/local/bin/corepack /usr/local/bin/corepack
-
-# Install Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer
 
 # Set working directory
 WORKDIR /app
