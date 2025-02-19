@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources\QuestionPackResource\Pages;
 use App\Filament\Admin\Resources\QuestionPackResource;
 use App\Models\ExamAttempt;
 use App\Models\User;
+use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 use Filament\Resources\Pages\Page;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables;
@@ -14,6 +15,7 @@ use Filament\Tables\Table;
 class ResultQuestionPack extends Page implements HasTable
 {
     use InteractsWithTable;
+    use InteractsWithRecord;
 
     protected static string $resource = QuestionPackResource::class;
 
@@ -21,10 +23,15 @@ class ResultQuestionPack extends Page implements HasTable
 
     protected static string $view = 'filament.admin.resources.question-pack-resource.pages.view-result';
 
+    public function mount(int | string $record): void
+    {
+        $this->record = $this->resolveRecord($record);
+    }
+
     public function table(Table $table): Table
     {
         return $table
-            ->query(ExamAttempt::query())
+            ->query(ExamAttempt::query()->where('question_pack_id', '=', $this->record->id))
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Nama Siswa')
@@ -39,7 +46,9 @@ class ResultQuestionPack extends Page implements HasTable
                     ->searchable(),
                 Tables\Columns\TextColumn::make('attempt_id')
                     ->label('ID Percobaan')
-                    ->searchable(),
+                    ->searchable()
+                    ->copyable()
+                    ->tooltip('Klik untuk menyalin ID Percobaan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Tanggal Submit')
                     ->sortable()
