@@ -87,7 +87,7 @@ class User extends Authenticatable implements FilamentUser
         }
 
         if ($panel->getId() === 'teacher') {
-            return $this->hasRole('teacher');
+            return $this->hasRole('teacher') || $this->hasRole('super_admin');
         }
  
         return true;
