@@ -15,7 +15,7 @@ class ExamAttempt extends Model
 
     public function exam()
     {
-        return $this->belongsTo(QuestionPack::class);
+        return $this->belongsTo(QuestionPack::class, 'question_pack_id', 'id');
     }
 
     public function responses()
