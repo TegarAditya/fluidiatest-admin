@@ -14,7 +14,7 @@ class ExamResponse extends Model
 
     public function attempt()
     {
-        return $this->belongsTo(ExamAttempt::class);
+        return $this->belongsTo(ExamAttempt::class, 'exam_attempt_id', 'id');
     }
 
 }
