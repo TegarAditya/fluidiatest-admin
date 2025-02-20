@@ -16,6 +16,61 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property int $question_pack_id
+ * @property string $attempt_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \App\Models\QuestionPack $exam
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ExamResponse> $responses
+ * @property-read int|null $responses_count
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereAttemptId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereQuestionPackId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamAttempt whereUserId($value)
+ */
+	class ExamAttempt extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $exam_attempt_id
+ * @property int $question_bank_id
+ * @property int|null $question_option_id
+ * @property int|null $reason_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\ExamAttempt|null $attempt
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereExamAttemptId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereQuestionBankId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereQuestionOptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereReasonId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse whereUpdatedAt($value)
+ */
+	class ExamResponse extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $learning_goal
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -301,6 +356,8 @@ namespace App\Models{
  * @property-read mixed $breezy_session
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Jeffgreco13\FilamentBreezy\Models\BreezySession> $breezySessions
  * @property-read int|null $breezy_sessions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ExamAttempt> $examAttempts
+ * @property-read int|null $exam_attempts_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Permission\Models\Permission> $permissions
@@ -331,6 +388,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutRole($roles, $guard = null)
  */
-	class User extends \Eloquent {}
+	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser {}
 }
 
