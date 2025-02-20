@@ -109,12 +109,18 @@ class QuestionPackResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('public_id')
+                    ->label('Public ID')
+                    ->copyable()
+                    ->tooltip('Klik untuk menyalin Public ID')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('code')
                     ->label('Kode')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->label('Deskripsi')
-                    ->limit(50),
+                    ->limit(50)
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('duration')
                     ->label('Durasi')
                     ->badge()
@@ -134,7 +140,18 @@ class QuestionPackResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: false),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('is_active')
+                    ->label('Status Aktif')
+                    ->options([
+                        1 => 'Aktif',
+                        0 => 'Tidak Aktif',
+                    ]),
+                Tables\Filters\SelectFilter::make('is_multi_tier')
+                    ->label('Tingkat')
+                    ->options([
+                        0 => '1 Tier',
+                        1 => '2 Tier',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
