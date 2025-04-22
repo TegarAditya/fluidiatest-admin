@@ -32,20 +32,66 @@
                         <li class="hover:font-semibold"><a href="/tutorial">Tutorial</a></li>
                     </ul>
                 </div>
+                <!-- Alpine.js -->
+
                 <div class="flex justify-end items-center gap-5">
-                    <div>
-                        <a href="/student">
+                    <div x-data="{ modal: false }">
+                        <!-- Trigger Button -->
+                        @auth
+                        @php
+                        $is_admin = auth()->user()->hasRole('super_admin');
+                        $is_teacher = auth()->user()->hasRole('teacher');
+                        @endphp
+                        <a href="{{ $is_admin ? '/admin' : ($is_teacher ? '/teacher' : '/student') }}">
                             <button class="px-5 shadow-md py-2 rounded-full bg-[#46338a] active:animate-jump active:animate-once">
-                                <p class="text-white font-bold">
-                                    @auth
-                                    Dashboard
-                                    @endauth
-                                    @guest
-                                    Masuk
-                                    @endguest
-                                </p>
+                                <p class="text-white font-bold">Dashboard</p>
                             </button>
                         </a>
+                        @endauth
+
+                        @guest
+                        <button
+                            @click="modal = true"
+                            class="px-5 shadow-md py-2 rounded-full bg-[#46338a] active:animate-jump active:animate-once">
+                            <p class="text-white font-bold">Masuk</p>
+                        </button>
+                        @endguest
+
+                        <!-- Modal -->
+                        <div
+                            x-show="modal"
+                            x-transition.opacity
+                            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm"
+                            style="display: none;">
+                            <div
+                                @click.outside="modal = false"
+                                class="bg-white rounded-xl shadow-lg max-w-sm w-full p-8 space-y-6 transition-opacity"
+                                x-transition.opacity>
+                                <h2 class="text-2xl font-semibold text-center text-gray-800">Masuk Sebagai</h2>
+
+                                <div class="flex flex-col space-y-4 font-semibold">
+                                    <a href="/student">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded hover:bg-gray-200 transition">
+                                            Siswa
+                                        </button>
+                                    </a>
+                                    <a href="/teacher">
+                                        <button class="w-full bg-gray-100 text-gray-800 px-4 py-3 rounded hover:bg-gray-200 transition">
+                                            Guru
+                                        </button>
+                                    </a>
+                                </div>
+
+                                <div class="text-center">
+                                    <button
+                                        @click="modal = false"
+                                        class="mt-4 text-sm text-gray-500 hover:underline">
+                                        Batal
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal -->
                     </div>
                 </div>
             </div>
