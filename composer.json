@@ -8,6 +8,7 @@
         "php": "^8.2",
         "awcodes/light-switch": "^1.0",
         "benjaminhoegh/parsedown-extended": "^1.4",
+        "bezhansalleh/filament-panel-switch": "^1.0",
         "bezhansalleh/filament-shield": "^3.3",
         "erusev/parsedown": "^1.7",
         "filament/filament": "^3.2",
@@ -22,6 +23,7 @@
         "tomatophp/filament-users": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.15",
         "barryvdh/laravel-ide-helper": "^3.3",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.1",
