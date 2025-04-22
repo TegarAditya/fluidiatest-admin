@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\LearningMaterial;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LearningMaterialPolicy

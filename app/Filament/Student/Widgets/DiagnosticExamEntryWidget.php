@@ -20,7 +20,7 @@ class DiagnosticExamEntryWidget extends Widget
 
     public static function canView(): bool
     {
-        return (new self())->getExams()->count() > 0;
+        return (new self)->getExams()->count() > 0;
     }
 
     public function mount()

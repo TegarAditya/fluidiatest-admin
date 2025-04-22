@@ -5,17 +5,12 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\QuestionBankResource\Pages;
 use App\Filament\Admin\Resources\QuestionBankResource\RelationManagers;
 use App\Models\QuestionBank;
-use App\Services\MarkdownService;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Forms\FormsComponent;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\HtmlString;
-use Symfony\Component\Console\Helper\TableStyle;
 
 class QuestionBankResource extends Resource
 {
@@ -53,8 +48,8 @@ class QuestionBankResource extends Resource
                     ->schema([
                         Forms\Components\Placeholder::make('preview')
                             ->label('Preview')
-                            ->content(fn($get) => $get('question') ? new HtmlString(parseMarkdown($get('question'))) : 'Tidak ada pertanyaan'),
-                    ])
+                            ->content(fn ($get) => $get('question') ? new HtmlString(parseMarkdown($get('question'))) : 'Tidak ada pertanyaan'),
+                    ]),
             ]);
     }
 
@@ -71,10 +66,10 @@ class QuestionBankResource extends Resource
                     ->limit(50),
                 Tables\Columns\TextColumn::make('is_option_available')
                     ->label('Opsi')
-                    ->default(fn($record) => count($record->options) > 0)
-                    ->formatStateUsing(fn($state) => $state ? 'Tersedia' : 'Tidak Tersedia')
+                    ->default(fn ($record) => count($record->options) > 0)
+                    ->formatStateUsing(fn ($state) => $state ? 'Tersedia' : 'Tidak Tersedia')
                     ->badge()
-                    ->color(fn($state) => $state ? 'info' : 'danger'),
+                    ->color(fn ($state) => $state ? 'info' : 'danger'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime()

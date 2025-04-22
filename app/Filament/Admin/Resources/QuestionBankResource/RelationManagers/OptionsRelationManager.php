@@ -7,8 +7,6 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OptionsRelationManager extends RelationManager
 {
@@ -61,8 +59,8 @@ class OptionsRelationManager extends RelationManager
                     ->limit(50),
                 Tables\Columns\TextColumn::make('is_correct')
                     ->label('Benar?')
-                    ->formatStateUsing(fn($state) => $state ? 'Benar' : 'Salah')
-                    ->color(fn(string $state): string => match ($state) {
+                    ->formatStateUsing(fn ($state) => $state ? 'Benar' : 'Salah')
+                    ->color(fn (string $state): string => match ($state) {
                         '1' => 'info',
                         '0' => 'danger',
                     })

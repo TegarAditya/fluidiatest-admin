@@ -4,18 +4,17 @@ namespace App\Filament\Admin\Resources\QuestionPackResource\Pages;
 
 use App\Filament\Admin\Resources\QuestionPackResource;
 use App\Models\ExamAttempt;
-use App\Models\User;
 use Filament\Resources\Pages\Concerns\InteractsWithRecord;
 use Filament\Resources\Pages\Page;
-use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables;
+use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
 
 class ResultQuestionPack extends Page implements HasTable
 {
-    use InteractsWithTable;
     use InteractsWithRecord;
+    use InteractsWithTable;
 
     protected static string $resource = QuestionPackResource::class;
 
@@ -23,7 +22,7 @@ class ResultQuestionPack extends Page implements HasTable
 
     protected static string $view = 'filament.admin.resources.question-pack-resource.pages.view-result';
 
-    public function mount(int | string $record): void
+    public function mount(int|string $record): void
     {
         $this->record = $this->resolveRecord($record);
     }
@@ -62,7 +61,7 @@ class ResultQuestionPack extends Page implements HasTable
                     ->button()
                     ->icon('heroicon-o-eye')
                     ->color('info')
-                    ->url(fn($record) => config('app.test-client.url') . '/result/' . $record->attempt_id, true)
+                    ->url(fn ($record) => config('app.test-client.url').'/result/'.$record->attempt_id, true),
             ])
             ->bulkActions([
                 // ...

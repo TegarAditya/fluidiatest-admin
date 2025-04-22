@@ -28,9 +28,9 @@ class QuestionPack extends Model
     {
         parent::boot();
 
-        $nanoid = new Client();
+        $nanoid = new Client;
 
-        $generatePublicId = function ($model) use ($nanoid) {
+        $generatePublicId = function ($model) {
             if ($model->public_id === null) {
                 $model->public_id = generatePublicId();
             }

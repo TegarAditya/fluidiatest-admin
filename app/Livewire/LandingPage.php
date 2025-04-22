@@ -8,6 +8,7 @@ use Livewire\Component;
 class LandingPage extends Component
 {
     public $title;
+
     public $learningPurpose;
 
     public function mount()

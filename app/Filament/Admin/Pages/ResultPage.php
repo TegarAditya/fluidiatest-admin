@@ -13,13 +13,12 @@ use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class ResultPage extends Page implements HasForms, HasTable
 {
+    use HasTabs;
     use InteractsWithForms;
     use InteractsWithTable;
-    use HasTabs;
 
     protected static ?string $slug = 'results';
 
@@ -44,7 +43,7 @@ class ResultPage extends Page implements HasForms, HasTable
             ->get()
             ->map(function ($item) {
                 return Tab::make($item->code)
-                    ->badge(fn() => $item->examAttempts()->count());
+                    ->badge(fn () => $item->examAttempts()->count());
             });
 
         return [...$tabItems];

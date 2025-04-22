@@ -64,7 +64,7 @@ class StudentPanelProvider extends PanelProvider
                 BreezyCore::make()
                     ->myProfile(),
                 LightSwitchPlugin::make()
-                    ->position(Alignment::TopCenter)
+                    ->position(Alignment::TopCenter),
             ]);
     }
 }

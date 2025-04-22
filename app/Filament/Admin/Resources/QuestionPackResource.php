@@ -3,19 +3,14 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\QuestionPackResource\Pages;
-use App\Filament\Admin\Resources\QuestionPackResource\RelationManagers;
 use App\Models\QuestionBank;
 use App\Models\QuestionPack;
-use App\Services\MarkdownService;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Forms\FormsComponent;
 use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\HtmlString;
 
 class QuestionPackResource extends Resource
@@ -93,14 +88,14 @@ class QuestionPackResource extends Resource
                                             ->live(),
                                         Forms\Components\Placeholder::make('question_ph')
                                             ->label('Pratinjau')
-                                            ->visible(fn(Get $get) => $get('question_bank_id'))
+                                            ->visible(fn (Get $get) => $get('question_bank_id'))
                                             ->content(function (Get $get) {
                                                 $question_bank = QuestionBank::find($get('question_bank_id'));
 
                                                 return new HtmlString(parseMarkdown($question_bank->question));
                                             }),
-                                    ])
-                            ])
+                                    ]),
+                            ]),
                     ]),
             ]);
     }

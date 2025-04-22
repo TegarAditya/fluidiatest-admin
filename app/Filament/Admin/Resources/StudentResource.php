@@ -3,7 +3,6 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\StudentResource\Pages;
-use App\Filament\Admin\Resources\StudentResource\RelationManagers;
 use App\Filament\Imports\StudentImporter;
 use App\Models\User;
 use Filament\Forms;
@@ -12,7 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class StudentResource extends Resource
 {
@@ -85,7 +83,7 @@ class StudentResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\SelectColumn::make('school_id')
                     ->label('Sekolah')
-                    ->options(fn() => \App\Models\School::pluck('name', 'id')->toArray())
+                    ->options(fn () => \App\Models\School::pluck('name', 'id')->toArray())
                     ->sortable(),
             ])
             ->filters([

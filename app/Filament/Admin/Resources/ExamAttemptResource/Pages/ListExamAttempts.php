@@ -20,9 +20,9 @@ class ListExamAttempts extends ListRecords
         $tabItems = QuestionPack::withCount('examAttempts')
             ->get()
             ->map(function ($item) {
-            return Tab::make($item->code)
-                ->badge(fn() => $item->exam_attempts_count)
-                ->modifyQueryUsing(fn($query) => $query->where('question_pack_id', $item->id));
+                return Tab::make($item->code)
+                    ->badge(fn () => $item->exam_attempts_count)
+                    ->modifyQueryUsing(fn ($query) => $query->where('question_pack_id', $item->id));
             });
 
         return [...$tabItems];

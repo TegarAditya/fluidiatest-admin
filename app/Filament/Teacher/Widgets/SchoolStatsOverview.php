@@ -3,9 +3,6 @@
 namespace App\Filament\Teacher\Widgets;
 
 use App\Models\ExamAttempt;
-use App\Models\ExamResponse;
-use App\Models\QuestionBank;
-use App\Models\QuestionPack;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;

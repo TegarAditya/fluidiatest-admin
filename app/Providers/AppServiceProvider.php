@@ -40,10 +40,10 @@ class AppServiceProvider extends ServiceProvider
                 'teacher' => 'heroicon-o-user',
                 'student' => 'heroicon-o-user-group',
             ], $asImage = false)
-            ->canSwitchPanels(fn (): bool => Auth::user()->hasRole('super_admin'))
-            ->visible(fn (): bool => Auth::user()->hasRole('super_admin'))
-            ->iconSize(20)
-            ->simple();
+                ->canSwitchPanels(fn (): bool => Auth::user()->hasRole('super_admin'))
+                ->visible(fn (): bool => Auth::user()->hasRole('super_admin'))
+                ->iconSize(20)
+                ->simple();
         });
     }
 }

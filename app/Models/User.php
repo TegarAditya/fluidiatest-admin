@@ -16,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles, TwoFactorAuthenticatable;
+    use HasFactory, HasRoles, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -68,9 +68,9 @@ class User extends Authenticatable implements FilamentUser
     {
         parent::boot();
 
-        $nanoid = new Client();
+        $nanoid = new Client;
 
-        $generatePublicId = function ($model) use ($nanoid) {
+        $generatePublicId = function ($model) {
             if ($model->public_id === null) {
                 $model->public_id = generatePublicId();
             }
@@ -89,7 +89,7 @@ class User extends Authenticatable implements FilamentUser
         if ($panel->getId() === 'teacher') {
             return $this->hasRole('teacher') || $this->hasRole('super_admin');
         }
- 
+
         return true;
     }
 }

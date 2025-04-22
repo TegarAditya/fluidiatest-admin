@@ -2,13 +2,10 @@
 
 namespace App\Filament\Teacher\Resources\StudentResource\RelationManagers;
 
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ExamAttemptsRelationManager extends RelationManager
 {
@@ -52,7 +49,7 @@ class ExamAttemptsRelationManager extends RelationManager
                     ->button()
                     ->icon('heroicon-o-eye')
                     ->color('info')
-                    ->url(fn($record) => config('app.test-client.url') . '/result/' . $record->attempt_id, true)
+                    ->url(fn ($record) => config('app.test-client.url').'/result/'.$record->attempt_id, true),
             ])
             ->bulkActions([
                 //
