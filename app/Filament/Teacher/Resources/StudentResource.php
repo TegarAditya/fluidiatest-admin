@@ -109,4 +109,9 @@ class StudentResource extends Resource
             'view' => Pages\ViewStudent::route('/{record}'),
         ];
     }
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 }
