@@ -3,23 +3,18 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\ExamAttemptResource\Pages;
-use App\Filament\Admin\Resources\ExamAttemptResource\RelationManagers;
 use App\Models\ExamAttempt;
-use App\Models\QuestionBank;
-use App\Models\QuestionPack;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ExamAttemptResource extends Resource
 {
     protected static ?string $model = ExamAttempt::class;
+
+    protected static ?string $modelLabel = 'Hasil Ujian';
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
