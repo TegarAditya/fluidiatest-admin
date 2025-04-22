@@ -11,12 +11,17 @@ class QuestionPack extends Model
 
     public function questions()
     {
-        return $this->belongsToMany(QuestionBank::class, 'question_pack_question_bank', 'question_pack_id', 'question_bank_id');
+        return $this->belongsToMany(QuestionBank::class, 'question_pack_question_banks', 'question_pack_id', 'question_bank_id');
     }
 
     public function questionPackQuestionBank()
     {
         return $this->hasMany(QuestionPackQuestionBank::class);
+    }
+
+    public function examAttempts()
+    {
+        return $this->hasMany(ExamAttempt::class);
     }
 
     protected static function boot()

@@ -25,6 +25,6 @@ class QuestionBank extends Model
 
     public function packs()
     {
-        return $this->belongsToMany(QuestionPack::class, 'question_pack_question_bank', 'question_bank_id', 'question_pack_id');
+        return $this->belongsToMany(QuestionPack::class, 'question_pack_question_banks', 'question_bank_id', 'question_pack_id');
     }
 }
