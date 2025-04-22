@@ -100,19 +100,7 @@ class ExamAttemptResource extends Resource
 
     private static function getScoreColumn(): array
     {
-        $itemColumn = QuestionBank::query()
-            ->whereHas('packs', function (Builder $query) {
-                $query->with(['examAttempts'])
-                    ->whereHas('examAttempts', function (Builder $query) {
-                        $query->where('question_pack_id', '!=', null);
-                    });
-            })
-            ->get();
-        
-        dd($itemColumn);
-
         return [
-            ...$itemColumn,
             Tables\Columns\TextColumn::make('total_score')
                 ->label('Jumlah Skor'),
         ];
