@@ -1,5 +1,5 @@
 # Copy Node.js and Corepack from node:alpine
-FROM node:20-alpine AS nodejs
+FROM node:22-alpine AS nodejs
 
 RUN npm install -g corepack@latest
 
