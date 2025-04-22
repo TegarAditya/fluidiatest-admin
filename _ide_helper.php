@@ -18834,6 +18834,394 @@ namespace AnourValar\EloquentSerialize\Facades {
             }
     }
 
+namespace BezhanSalleh\PanelSwitch\Facades {
+            /**
+     * 
+     *
+     * @see \BezhanSalleh\PanelSwitch\PanelSwitch
+     */        class PanelSwitch {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function make()
+        {
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::make();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function boot()
+        {
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::boot();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function canSwitchPanels($condition)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->canSwitchPanels($condition);
+        }
+                    /**
+         * 
+         *
+         * @deprecated Use `panels()` instead.
+         * @static 
+         */        public static function excludes($panelIds)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->excludes($panelIds);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function modalHeading($modalHeading)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->modalHeading($modalHeading);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function icons($icons, $asImage = false)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->icons($icons, $asImage);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function iconSize($size = null)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->iconSize($size);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function labels($labels)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->labels($labels);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function modalWidth($width = null)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->modalWidth($width);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function panels($panels = null)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->panels($panels);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function renderHook($hook)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->renderHook($hook);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function slideOver($condition = true)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->slideOver($condition);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function simple($condition = true)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->simple($condition);
+        }
+                    /**
+         * Whether to sort the panels by their order or not.
+         * 
+         * 1. null - Default order, provided by the user through the `panels` method.
+         * 2. 'asc' - Ascending order
+         * 3. 'desc' - Descending order
+         *
+         * @static 
+         */        public static function sort($order = 'asc')
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->sort($order);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function visible($visible)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->visible($visible);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getExcludes()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getExcludes();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getModalHeading()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getModalHeading();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getIcons()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getIcons();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getIconSize()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getIconSize();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getLabels()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getLabels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getModalWidth()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getModalWidth();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function isAbleToSwitchPanels()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->isAbleToSwitchPanels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function isModalSlideOver()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->isModalSlideOver();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function isSimple()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->isSimple();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function isVisible()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->isVisible();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getSortOrder()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getSortOrder();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getPanels()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getPanels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getCurrentPanel()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getCurrentPanel();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getRenderHook()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getRenderHook();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function getRenderIconAsImage()
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->getRenderIconAsImage();
+        }
+                    /**
+         * Apply the callback if the given "value" is (or resolves to) truthy.
+         *
+         * @template TWhenParameter
+         * @template TWhenReturnType
+         * @param (\Closure($this): TWhenParameter)|\Filament\Support\Components\TWhenParameter|null $value
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $callback
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $default
+         * @return $this|\Filament\Support\Components\TWhenReturnType 
+         * @static 
+         */        public static function when($value = null, $callback = null, $default = null)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->when($value, $callback, $default);
+        }
+                    /**
+         * Apply the callback if the given "value" is (or resolves to) falsy.
+         *
+         * @template TUnlessParameter
+         * @template TUnlessReturnType
+         * @param (\Closure($this): TUnlessParameter)|\Filament\Support\Components\TUnlessParameter|null $value
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $callback
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $default
+         * @return $this|\Filament\Support\Components\TUnlessReturnType 
+         * @static 
+         */        public static function unless($value = null, $callback = null, $default = null)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->unless($value, $callback, $default);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function configureUsing($modifyUsing, $during = null, $isImportant = false)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::configureUsing($modifyUsing, $during, $isImportant);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function configure()
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->configure();
+        }
+                    /**
+         * 
+         *
+         * @template T
+         * @param \Filament\Support\Components\T  | callable(): T  $value
+         * @param array<string, mixed> $namedInjections
+         * @param array<string, mixed> $typedInjections
+         * @return \Filament\Support\Components\T 
+         * @static 
+         */        public static function evaluate($value, $namedInjections = [], $typedInjections = [])
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->evaluate($value, $namedInjections, $typedInjections);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function macro($name, $macro)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::macro($name, $macro);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function mixin($mixin, $replace = true)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::mixin($mixin, $replace);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function flushMacros()
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        return \BezhanSalleh\PanelSwitch\PanelSwitch::flushMacros();
+        }
+                    /**
+         * Call the given Closure with this instance then return the instance.
+         *
+         * @param (callable($this): mixed)|null $callback
+         * @return ($callback is null ? \Illuminate\Support\HigherOrderTapProxy : $this)
+         * @static 
+         */        public static function tap($callback = null)
+        {            //Method inherited from \Filament\Support\Components\Component         
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->tap($callback);
+        }
+                    /**
+         * 
+         *
+         * @throws InvalidArgumentException
+         * @static 
+         */        public static function areUserProvidedPanelsValid($panelIds)
+        {
+                        /** @var \BezhanSalleh\PanelSwitch\PanelSwitch $instance */
+                        return $instance->areUserProvidedPanelsValid($panelIds);
+        }
+            }
+    }
+
 namespace BezhanSalleh\FilamentShield\Facades {
             /**
      * 
@@ -26569,6 +26957,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class EloquentSerialize extends \AnourValar\EloquentSerialize\Facades\EloquentSerializeFacade {}
+            class PanelSwitch extends \BezhanSalleh\PanelSwitch\Facades\PanelSwitch {}
             class FilamentShield extends \BezhanSalleh\FilamentShield\Facades\FilamentShield {}
             class FilamentBreezy extends \Jeffgreco13\FilamentBreezy\Facades\FilamentBreezy {}
             class Octane extends \Laravel\Octane\Facades\Octane {}
@@ -26576,11 +26965,6 @@ namespace  {
     }
 
 
-namespace Facades\Livewire\Features\SupportFileUploads {
-    /**
-     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
-    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
-}
 
 
 
