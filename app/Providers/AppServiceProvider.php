@@ -32,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         FilamentAsset::register([
             Css::make('katex-css', 'https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/katex.min.css'),
             Js::make('katex-js', 'https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/katex.min.js'),
+            Js::make('katex-auto-render', 'https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/contrib/auto-render.min.js'),
+            Js::make('katex-init', asset('js/katex-init.js')),
         ]);
 
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
@@ -39,8 +41,9 @@ class AppServiceProvider extends ServiceProvider
                 'admin' => 'heroicon-o-identification',
                 'teacher' => 'heroicon-o-user',
                 'student' => 'heroicon-o-user-group',
-            ], $asImage = false)
-                ->canSwitchPanels(fn (): bool => Auth::user()->hasRole('super_admin'))
+            ], asImage: false)
+                ->panels(fn (): array => Auth::user()->hasRole('super_admin') ? ['admin', 'teacher', 'student'] : ['teacher', 'student'])
+                ->canSwitchPanels(fn (): bool => Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('teacher'))
                 ->visible(fn (): bool => Auth::user()->hasRole('super_admin'))
                 ->iconSize(20)
                 ->simple();
