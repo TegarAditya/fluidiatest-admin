@@ -10,7 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Support\HtmlString;
 
 class QuestionBankResource extends Resource
 {
@@ -43,13 +42,6 @@ class QuestionBankResource extends Resource
                     ->fileAttachmentsDirectory('uploads')
                     ->hiddenOn(['view'])
                     ->columnSpanFull(),
-                Forms\Components\Section::make()
-                    ->visibleOn(['view'])
-                    ->schema([
-                        Forms\Components\Placeholder::make('preview')
-                            ->label('Preview')
-                            ->content(fn ($get) => $get('question') ? new HtmlString(parseMarkdown($get('question'))) : 'Tidak ada pertanyaan'),
-                    ]),
             ]);
     }
 
@@ -89,7 +81,7 @@ class QuestionBankResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -113,6 +105,7 @@ class QuestionBankResource extends Resource
             'index' => Pages\ListQuestionBanks::route('/'),
             'create' => Pages\CreateQuestionBank::route('/create'),
             'edit' => Pages\EditQuestionBank::route('/{record}/edit'),
+            'view' => Pages\ViewQuestionBank::route('/{record}'),
         ];
     }
 }
