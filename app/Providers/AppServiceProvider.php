@@ -42,7 +42,28 @@ class AppServiceProvider extends ServiceProvider
                 'teacher' => 'heroicon-o-user',
                 'student' => 'heroicon-o-user-group',
             ], asImage: false)
-                ->panels(fn (): array => Auth::user()->hasRole('super_admin') ? ['admin', 'teacher', 'student'] : ['teacher', 'student'])
+                ->panels(function (): array {
+                    if (! Auth::check()) {
+                        return [];
+                    }
+
+                    if (Auth::user()->hasRole('super_admin')) {
+                        return [
+                            'admin',
+                            'teacher',
+                            'student',
+                        ];
+                    } elseif (Auth::user()->hasRole('teacher')) {
+                        return [
+                            'teacher',
+                            'student',
+                        ];
+                    } else {
+                        return [
+                            'student',
+                        ];
+                    }
+                })
                 ->canSwitchPanels(fn (): bool => Auth::user()->hasRole('super_admin') || Auth::user()->hasRole('teacher'))
                 ->visible(fn (): bool => Auth::user()->hasRole('super_admin'))
                 ->iconSize(20)
