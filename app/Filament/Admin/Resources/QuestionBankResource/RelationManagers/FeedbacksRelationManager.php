@@ -45,6 +45,8 @@ class FeedbacksRelationManager extends RelationManager
                     ->sortable(),
                 Tables\Columns\TextColumn::make('feedback')
                     ->label('Saran')
+                    ->html()
+                    ->extraAttributes(['x-init' => 'window.renderKatexMath()'])
                     ->limit(50),
             ])
             ->filters([

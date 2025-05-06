@@ -56,6 +56,8 @@ class ReasonsRelationManager extends RelationManager
                     ->sortable(),
                 Tables\Columns\TextColumn::make('reason')
                     ->label('Alasan')
+                    ->html()
+                    ->extraAttributes(['x-init' => 'window.renderKatexMath()'])
                     ->limit(50),
                 Tables\Columns\TextColumn::make('is_correct')
                     ->label('Benar?')

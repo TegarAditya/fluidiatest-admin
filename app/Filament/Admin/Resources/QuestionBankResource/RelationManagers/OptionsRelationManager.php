@@ -56,6 +56,8 @@ class OptionsRelationManager extends RelationManager
                     ->sortable(),
                 Tables\Columns\TextColumn::make('option')
                     ->label('Opsi')
+                    ->html()
+                    ->extraAttributes(['x-init' => 'window.renderKatexMath()'])
                     ->limit(50),
                 Tables\Columns\TextColumn::make('is_correct')
                     ->label('Benar?')
