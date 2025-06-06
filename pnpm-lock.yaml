@@ -8,16 +8,13 @@ importers:
 
   .:
     dependencies:
-      '@tailwindcss/forms':
-        specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.4.17)
-      postcss-nesting:
-        specifier: ^13.0.1
-        version: 13.0.1(postcss@8.5.1)
       tailwindcss-animated:
         specifier: ^1.1.2
         version: 1.1.2(tailwindcss@3.4.17)
     devDependencies:
+      '@tailwindcss/forms':
+        specifier: ^0.5.10
+        version: 0.5.10(tailwindcss@3.4.17)
       '@tailwindcss/typography':
         specifier: ^0.5.16
         version: 0.5.16(tailwindcss@3.4.17)
@@ -36,6 +33,9 @@ importers:
       postcss:
         specifier: ^8.5.1
         version: 8.5.1
+      postcss-nesting:
+        specifier: ^13.0.1
+        version: 13.0.1(postcss@8.5.1)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
