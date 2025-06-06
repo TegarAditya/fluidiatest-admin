@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LearningMaterial extends Model
 {
-    protected $fillable = ['title', 'description', 'attachment'];
+    protected $fillable = [
+        'title',
+        'description',
+        'attachment'
+    ];
 }

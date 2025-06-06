@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionBank extends Model
 {
-    protected $fillable = ['code', 'question'];
+    protected $fillable = [
+        'code',
+        'question'
+    ];
 
     public function options()
     {

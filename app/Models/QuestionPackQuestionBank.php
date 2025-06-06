@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionPackQuestionBank extends Model
 {
-    protected $fillable = ['question_pack_id', 'question_bank_id'];
+    protected $fillable = [
+        'question_pack_id',
+        'question_bank_id'
+    ];
 
     public function question()
     {

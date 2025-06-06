@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionFeedback extends Model
 {
-    protected $fillable = ['question_bank_id', 'score', 'feedback'];
+    protected $fillable = [
+        'question_bank_id',
+        'score',
+        'feedback'
+    ];
 
     public function question()
     {

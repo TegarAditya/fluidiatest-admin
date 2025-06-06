@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuestionOption extends Model
 {
-    protected $fillable = ['question_bank_id', 'label', 'option', 'is_correct'];
+    protected $fillable = [
+        'question_bank_id',
+        'label',
+        'option',
+        'is_correct'
+    ];
 
     public function question()
     {
