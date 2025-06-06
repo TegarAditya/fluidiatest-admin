@@ -23,6 +23,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
  * @property-read \App\Models\QuestionPack $exam
+ * @property-read mixed $total_score
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ExamResponse> $responses
  * @property-read int|null $responses_count
  * @property-read \App\Models\User $user
@@ -51,7 +52,11 @@ namespace App\Models{
  * @property int|null $reason_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\ExamAttempt|null $attempt
+ * @property-read \App\Models\ExamAttempt $attempt
+ * @property-read mixed $score
+ * @property-read \App\Models\QuestionOption|null $option
+ * @property-read \App\Models\QuestionBank|null $question
+ * @property-read \App\Models\Reason|null $reason
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|ExamResponse query()
@@ -235,6 +240,8 @@ namespace App\Models{
  * @property string|null $deleted_at
  * @property string|null $type
  * @property string|null $duration
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ExamAttempt> $examAttempts
+ * @property-read int|null $exam_attempts_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionPackQuestionBank> $questionPackQuestionBank
  * @property-read int|null $question_pack_question_bank_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionBank> $questions
