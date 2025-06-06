@@ -39,6 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->brandName('Fluidiatest Admin')
             ->sidebarCollapsibleOnDesktop()
             ->databaseNotifications()
@@ -57,13 +58,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 NavigationGroup::make()
+                    ->label('Data Sekolah'),
+                NavigationGroup::make()
                     ->label('Data Materi'),
                 NavigationGroup::make()
                     ->label('Data Soal'),
                 NavigationGroup::make()
                     ->label('Data Hasil'),
-                NavigationGroup::make()
-                    ->label('Data Sekolah'),
                 NavigationGroup::make()
                     ->label('Pelindung'),
             ])
