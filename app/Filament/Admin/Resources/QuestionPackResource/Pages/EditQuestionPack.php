@@ -20,4 +20,9 @@ class EditQuestionPack extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    public function renderKatex(): void
+    {
+        $this->dispatch('render-katex');
+    }
 }
