@@ -16,6 +16,8 @@ class ExamAttemptResource extends Resource
 
     protected static ?string $modelLabel = 'Hasil Ujian';
 
+    protected static bool $isDiscovered = false;
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $navigationGroup = 'Data Hasil';
