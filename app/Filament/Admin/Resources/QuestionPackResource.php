@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 
 class QuestionPackResource extends Resource
 {
@@ -88,11 +89,14 @@ class QuestionPackResource extends Resource
                                             ->live(),
                                         Forms\Components\Placeholder::make('question_ph')
                                             ->label('Pratinjau')
-                                            ->visible(fn (Get $get) => $get('question_bank_id'))
-                                            ->content(function (Get $get) {
+                                            ->visible(fn(Get $get) => $get('question_bank_id'))
+                                            ->extraAttributes(['class' => 'prose text-white'])
+                                            ->content(function (Get $get, $livewire) {
                                                 $question_bank = QuestionBank::find($get('question_bank_id'));
 
-                                                return new HtmlString(parseMarkdown($question_bank->question));
+                                                $livewire->dispatch('render-katex');
+
+                                                return new HtmlString("<div x-init='window.renderKatexMath()'>" . Str::markdown($question_bank->question) . '</div>');
                                             }),
                                     ]),
                             ]),
