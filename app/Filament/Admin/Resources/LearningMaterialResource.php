@@ -2,6 +2,7 @@
 
 namespace App\Filament\Admin\Resources;
 
+use App\Filament\Admin\Forms\Components\PdfViewerField;
 use App\Filament\Admin\Resources\LearningMaterialResource\Pages;
 use App\Models\LearningMaterial;
 use Filament\Forms;
@@ -9,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class LearningMaterialResource extends Resource
 {
@@ -42,6 +44,9 @@ class LearningMaterialResource extends Resource
                     ->required()
                     ->disk('s3')
                     ->directory('uploads')
+                    ->columnSpanFull(),
+                PdfViewerField::make('attachment')
+                    ->label('Pratinjau PDF')
                     ->columnSpanFull(),
             ]);
     }
