@@ -2,7 +2,6 @@
 
 namespace App\Filament\Admin\Forms\Components;
 
-use Faker\Provider\Base;
 use Joaopaulolndev\FilamentPdfViewer\Forms\Components\PdfViewerField as BasePdfViewerField;
 use Closure;
 
