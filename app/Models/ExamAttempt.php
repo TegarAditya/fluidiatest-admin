@@ -24,7 +24,8 @@ class ExamAttempt extends Model
 
     public function responses()
     {
-        return $this->hasMany(ExamResponse::class)->whereIn('question_bank_id', $this->exam->questions->pluck('id'));
+        return $this->hasMany(ExamResponse::class)
+            ->whereIn('question_bank_id', optional($this->exam)->questions?->pluck('id') ?? []);
     }
 
     public function getTotalScoreAttribute()
