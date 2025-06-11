@@ -85,6 +85,7 @@ class LearningMaterialResource extends Resource
     {
         return [
             'index' => Pages\ManageLearningMaterials::route('/'),
+            'edit' => Pages\EditLearningMaterial::route('/{record}/edit'),
         ];
     }
 }
