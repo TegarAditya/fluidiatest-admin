@@ -153,6 +153,7 @@ class QuestionPackResource extends Resource
                     ]),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -174,6 +175,7 @@ class QuestionPackResource extends Resource
         return [
             'index' => Pages\ListQuestionPacks::route('/'),
             'create' => Pages\CreateQuestionPack::route('/create'),
+            'view' => Pages\ViewQuestionPack::route('/{record}'),
             'edit' => Pages\EditQuestionPack::route('/{record}/edit'),
             'result' => Pages\ResultQuestionPack::route('/{record}/result'),
         ];
