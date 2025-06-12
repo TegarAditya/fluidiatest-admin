@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources\QuestionPackResource\Pages;
 
 use App\Filament\Admin\Resources\QuestionPackResource;
+use Carbon\Carbon;
 use Filament\Actions;
 use Filament\Infolists;
 use Filament\Infolists\Components\TextEntry\TextEntrySize;
@@ -33,39 +34,46 @@ class ViewQuestionPack extends ViewRecord
         return $infolist
             ->columns(3)
             ->schema([
-                    Infolists\Components\Section::make()
-                        ->columnSpan(2)
-                        ->schema([
-                            Infolists\Components\TextEntry::make('code')
-                                ->hiddenLabel()
-                                ->weight(FontWeight::Bold)
-                                ->size(TextEntrySize::Large),
-                            Infolists\Components\TextEntry::make('description')
-                                ->hiddenLabel()
-                                ->markdown()
-                                ->prose()
-                                ->columnSpanFull(),
-                        ]),
-                    Infolists\Components\Section::make()
-                        ->columnSpan(1)
-                        ->schema([
-                            Infolists\Components\TextEntry::make('duration')
-                                ->label('Durasi')
-                                ->inlineLabel()
-                                ->getStateUsing(fn() => $this->record->duration ? \Carbon\Carbon::parse($this->record->duration)->format('i') . ' menit' : null),
-                            Infolists\Components\TextEntry::make('is_active')
-                                ->label('Status')
-                                ->inlineLabel()
-                                ->getStateUsing(fn() => $this->record->is_active ? 'Aktif' : 'Tidak Aktif'),
-                            Infolists\Components\TextEntry::make('is_multi_tier')
-                                ->label('Tingkat')
-                                ->inlineLabel()
-                                ->getStateUsing(fn() => $this->record->is_multi_tier ? 'Multi Tier' : 'Single Tier'),
-                            Infolists\Components\TextEntry::make('created_at')
-                                ->label('Tanggal Dibuat')
-                                ->inlineLabel()
-                                ->getStateUsing(fn() => $this->record->created_at?->format('d M Y H:i')),
-                        ]),
+                Infolists\Components\Section::make()
+                    ->columnSpan(2)
+                    ->schema([
+                        Infolists\Components\TextEntry::make('code')
+                            ->hiddenLabel()
+                            ->weight(FontWeight::Bold)
+                            ->size(TextEntrySize::Large),
+                        Infolists\Components\TextEntry::make('description')
+                            ->hiddenLabel()
+                            ->markdown()
+                            ->prose()
+                            ->columnSpanFull(),
+                    ]),
+                Infolists\Components\Section::make()
+                    ->columnSpan(1)
+                    ->schema([
+                        Infolists\Components\TextEntry::make('duration')
+                            ->label('Durasi')
+                            ->inlineLabel()
+                            ->getStateUsing(function () {
+                                if (!$this->record->duration) {
+                                    return null;
+                                }
+                                $duration = Carbon::parse($this->record->duration);
+                                $totalMinutes = ($duration->hour * 60) + $duration->minute;
+                                return $totalMinutes . ' menit';
+                            }),
+                        Infolists\Components\TextEntry::make('is_active')
+                            ->label('Status')
+                            ->inlineLabel()
+                            ->getStateUsing(fn() => $this->record->is_active ? 'Aktif' : 'Tidak Aktif'),
+                        Infolists\Components\TextEntry::make('is_multi_tier')
+                            ->label('Tingkat')
+                            ->inlineLabel()
+                            ->getStateUsing(fn() => $this->record->is_multi_tier ? 'Multi Tier' : 'Single Tier'),
+                        Infolists\Components\TextEntry::make('created_at')
+                            ->label('Tanggal Dibuat')
+                            ->inlineLabel()
+                            ->dateTime(timezone: 'Asia/Jakarta', format: 'd M Y H:i'),
+                    ]),
                 Infolists\Components\Section::make()
                     ->columns(1)
                     ->schema([
