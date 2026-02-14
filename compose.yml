@@ -6,5 +6,10 @@ services:
       - "${APP_PORT}:8000"
     volumes:
       - ./.env:/app/.env
+    deploy:
+      resources:
+        limits:
+          cpus: "${CPU_LIMIT:-1}"
+          memory: "${MEMORY_LIMIT:-1024M}"
     entrypoint: php artisan octane:frankenphp --workers=2 --max-requests=4
     restart: unless-stopped
